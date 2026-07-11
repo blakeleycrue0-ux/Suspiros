@@ -393,6 +393,47 @@ margin-top: 3rem; font-size: 0.78rem; letter-spacing: 0.1em;
 text-transform: uppercase; color: rgba(245,240,232,0.3);
 }
 
+/* ENQUIRY FORM */
+.enquiry-form {
+display: flex; flex-direction: column; gap: 1rem;
+max-width: 560px; margin: 0 auto; text-align: left;
+}
+.bot-field-wrap { position: absolute; left: -9999px; }
+.form-row { display: flex; gap: 1rem; }
+.enquiry-form input,
+.enquiry-form select,
+.enquiry-form textarea {
+flex: 1; width: 100%;
+background: rgba(255,255,255,0.06);
+border: 1px solid rgba(255,255,255,0.18);
+color: var(--sand);
+font-family: 'Jost', sans-serif; font-size: 0.88rem;
+padding: 0.9rem 1.1rem;
+transition: border-color 0.3s, background 0.3s;
+}
+.enquiry-form select { appearance: none; cursor: pointer; }
+.enquiry-form select option { background: var(--slate); color: var(--sand); }
+.enquiry-form textarea { resize: vertical; font-family: 'Jost', sans-serif; }
+.enquiry-form input::placeholder,
+.enquiry-form textarea::placeholder { color: rgba(245,240,232,0.4); }
+.enquiry-form input:focus,
+.enquiry-form select:focus,
+.enquiry-form textarea:focus {
+outline: none; border-color: var(--terracotta);
+background: rgba(255,255,255,0.1);
+}
+.enquiry-form button {
+border: none; cursor: pointer; margin-top: 0.5rem;
+}
+.or-divider {
+margin: 2rem 0 1.5rem; font-size: 0.75rem; letter-spacing: 0.1em;
+text-transform: uppercase; color: rgba(245,240,232,0.35);
+}
+
+@media (max-width: 600px) {
+.form-row { flex-direction: column; }
+}
+
 /* FOOTER */
 footer {
 background: #2c2e30; padding: 3rem 6rem;
@@ -771,17 +812,53 @@ Start your journey
 <li>All visits must be pre-arranged with management</li>
 </ul>
 </div>
+<div class="info-box">
+<h3>Payment & enquiries</h3>
+<ul>
+<li>All places are self-funded (private pay)</li>
+<li>Our admissions team will discuss payment options in confidence during your initial call</li>
+<li>No obligation — enquiries are always free and confidential</li>
+</ul>
+</div>
 </div>
 </div>
 </section>
 
 <!-- CONTACT / CTA -->
+<!-- TODO before launch: replace the placeholder email below and add a real phone/WhatsApp number. -->
 <section class="contact-section" id="contact">
 <div class="section-label" style="justify-content:center; color:var(--terracotta);">Take the first step</div>
 <h2 class="section-h2" style="text-align:center; margin: 0 auto 1.5rem;">Ready to begin your recovery?</h2>
-<p class="contact-lead">You do not have to have all the answers right now — only a willingness to begin. Our team is here to listen, guide, and support you from the very first conversation.</p>
+<p class="contact-lead">You do not have to have all the answers right now — only a willingness to begin. Send us an enquiry below, or reach us directly by email. Every conversation is confidential.</p>
+
+<form name="admission-enquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="enquiry-form">
+<input type="hidden" name="form-name" value="admission-enquiry" />
+<p class="bot-field-wrap"><label>Leave this field empty: <input name="bot-field" /></label></p>
+<div class="form-row">
+<input type="text" name="name" placeholder="Full name" autocomplete="name" required>
+<input type="email" name="email" placeholder="Email address" autocomplete="email" required>
+</div>
+<div class="form-row">
+<input type="tel" name="phone" placeholder="Phone (optional)" autocomplete="tel">
+<select name="enquiry-type">
+<option value="Myself">Enquiring for myself</option>
+<option value="Family member">Enquiring for a family member</option>
+<option value="Professional referral">Professional referral</option>
+</select>
+</div>
+<textarea name="message" rows="4" placeholder="Tell us a little about your situation, or ask us anything"></textarea>
+<button type="submit" class="btn-primary" style="align-self:center;">
+Send enquiry
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+<path d="M3 8h10M9 4l4 4-4 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</button>
+</form>
+
+<p class="or-divider">— or —</p>
+
 <a href="mailto:admissions@suspirosrehab.com" class="contact-cta">
-Get in touch
+Email us directly
 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
 <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
