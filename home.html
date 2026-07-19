@@ -314,25 +314,36 @@
   .story-text h2 { font-size: clamp(1.8rem, 3.6vw, 2.6rem); margin-bottom: 1.4rem; }
   .story-text p { color: var(--text-secondary); font-size: 1.04rem; max-width: 46ch; margin-bottom: 1.1rem; }
 
-  .story-quote {
-    display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem;
-    margin: 1.75rem 0;
-    font-family: 'Fraunces', serif; font-style: italic;
-    font-size: 1.15rem; color: var(--text);
-  }
-  .story-quote-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--primary); flex-shrink: 0; }
-
   .story-badge {
     display: flex; gap: 1rem; align-items: flex-start;
     border-left: 3px solid var(--primary); padding: 0.2rem 0 0.2rem 1.25rem;
-    margin-top: 1.75rem; max-width: 44ch;
+    margin-top: 1.5rem; max-width: 44ch;
   }
   .story-badge svg { width: 22px; height: 22px; flex-shrink: 0; margin-top: 0.2rem; }
   .story-badge strong { display: block; font-family: 'Fraunces', serif; font-weight: 500; font-size: 1.02rem; margin-bottom: 0.3rem; }
   .story-badge p { color: var(--text-secondary); font-size: 0.92rem; margin: 0; }
 
-  .story-visual { position: relative; aspect-ratio: 1 / 1; max-width: 380px; margin: 0 auto; }
-  .story-visual svg { width: 100%; height: 100%; }
+  .story-visual { width: 100%; max-width: 380px; margin: 0 auto; }
+  .steps-card {
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 2rem 1.75rem;
+    box-shadow: var(--shadow-soft);
+  }
+  .steps-list {
+    list-style: none;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1.1rem 1.25rem;
+  }
+  .steps-list li {
+    display: flex; align-items: center; gap: 0.65rem;
+    font-size: 0.9rem; color: var(--text);
+  }
+  .steps-num {
+    width: 26px; height: 26px; border-radius: 50%; flex-shrink: 0;
+    background: rgba(169, 184, 141, 0.2); color: var(--primary-dark);
+    font-family: 'Fraunces', serif; font-size: 0.8rem;
+    display: flex; align-items: center; justify-content: center;
+  }
 
   /* HOW WE HELP (icon-card component, reused by nothing currently but kept for future cards) */
   .help-grid {
@@ -552,7 +563,6 @@
     .hero-visual { order: -1; max-width: 320px; margin: 0 auto; }
     .story-grid { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
     .story-text p { margin-left: auto; margin-right: auto; }
-    .story-quote { justify-content: center; }
     .story-badge { margin-left: auto; margin-right: auto; text-align: left; }
     .story-visual { order: -1; }
     .help-grid { grid-template-columns: 1fr; }
@@ -649,12 +659,6 @@
           <h2 data-i18n="story.title">Built on the twelve steps.</h2>
           <p data-i18n="story.p1">Suspiros was founded on a simple belief: recovery lasts when it is personal, structured, and never walked alone.</p>
           <p data-i18n="story.p2">Our programme is rooted in the 12-Step tradition, blended with medical care, therapy, and a steady daily rhythm.</p>
-          <div class="story-quote">
-            <span data-i18n="story.q1">Acceptance</span><span class="story-quote-dot"></span>
-            <span data-i18n="story.q2">Honesty</span><span class="story-quote-dot"></span>
-            <span data-i18n="story.q3">Community</span><span class="story-quote-dot"></span>
-            <span data-i18n="story.q4">Growth</span>
-          </div>
           <div class="story-badge">
             <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#6F7F58" stroke-width="1.4"/><path d="M9 12.5l2 2 4-4.5" stroke="#6F7F58" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <div>
@@ -663,27 +667,23 @@
             </div>
           </div>
         </div>
-        <div class="story-visual reveal" aria-hidden="true">
-          <svg viewBox="0 0 400 400" fill="none">
-            <circle cx="200" cy="200" r="3" fill="#A9B88D"/>
-            <circle cx="370" cy="200" r="3" fill="#A9B88D"/>
-            <circle cx="320" cy="320" r="3" fill="#A9B88D"/>
-            <circle cx="200" cy="370" r="3" fill="#A9B88D"/>
-            <circle cx="80" cy="320" r="3" fill="#A9B88D"/>
-            <circle cx="30" cy="200" r="3" fill="#A9B88D"/>
-            <circle cx="80" cy="80" r="3" fill="#A9B88D"/>
-            <circle cx="200" cy="30" r="3" fill="#A9B88D"/>
-            <circle cx="320" cy="80" r="3" fill="#A9B88D"/>
-            <circle cx="200" cy="200" r="170" stroke="#D8DED2" stroke-width="1.4"/>
-            <circle cx="200" cy="200" r="140" fill="#A9B88D" fill-opacity="0.14"/>
-            <circle cx="200" cy="200" r="95" fill="#FFFFFF" stroke="#6F7F58" stroke-width="1.6"/>
-            <path d="M182 248c8-30 14-55 14-80" stroke="#6F7F58" stroke-width="1.8" stroke-linecap="round"/>
-            <ellipse cx="190" cy="207" rx="7" ry="14" transform="rotate(-32 190 207)" stroke="#6F7F58" stroke-width="1.4"/>
-            <ellipse cx="199" cy="178" rx="6.5" ry="13" transform="rotate(-22 199 178)" stroke="#6F7F58" stroke-width="1.4"/>
-            <circle cx="176" cy="230" r="4.5" fill="#6F7F58"/>
-            <circle cx="182" cy="217" r="4.5" fill="#6F7F58"/>
-            <text x="200" y="272" text-anchor="middle" font-family="Fraunces, serif" font-size="26" fill="#6F7F58">XII</text>
-          </svg>
+        <div class="story-visual reveal">
+          <div class="steps-card">
+            <ol class="steps-list">
+              <li><span class="steps-num">1</span><span data-i18n="story.step1">Acceptance</span></li>
+              <li><span class="steps-num">2</span><span data-i18n="story.step2">Trust</span></li>
+              <li><span class="steps-num">3</span><span data-i18n="story.step3">Liberation</span></li>
+              <li><span class="steps-num">4</span><span data-i18n="story.step4">Understanding</span></li>
+              <li><span class="steps-num">5</span><span data-i18n="story.step5">Acknowledgement</span></li>
+              <li><span class="steps-num">6</span><span data-i18n="story.step6">Freedom</span></li>
+              <li><span class="steps-num">7</span><span data-i18n="story.step7">Growth</span></li>
+              <li><span class="steps-num">8</span><span data-i18n="story.step8">Reflection</span></li>
+              <li><span class="steps-num">9</span><span data-i18n="story.step9">Forgiveness</span></li>
+              <li><span class="steps-num">10</span><span data-i18n="story.step10">Continuity</span></li>
+              <li><span class="steps-num">11</span><span data-i18n="story.step11">Connection</span></li>
+              <li><span class="steps-num">12</span><span data-i18n="story.step12">Helping Others</span></li>
+            </ol>
+          </div>
         </div>
       </div>
     </div>
@@ -1026,7 +1026,9 @@
       'story.title': 'Built on the twelve steps.',
       'story.p1': 'Suspiros was founded on a simple belief: recovery lasts when it is personal, structured, and never walked alone.',
       'story.p2': 'Our programme is rooted in the 12-Step tradition, blended with medical care, therapy, and a steady daily rhythm.',
-      'story.q1': 'Acceptance', 'story.q2': 'Honesty', 'story.q3': 'Community', 'story.q4': 'Growth',
+      'story.step1': 'Acceptance', 'story.step2': 'Trust', 'story.step3': 'Liberation', 'story.step4': 'Understanding',
+      'story.step5': 'Acknowledgement', 'story.step6': 'Freedom', 'story.step7': 'Growth', 'story.step8': 'Reflection',
+      'story.step9': 'Forgiveness', 'story.step10': 'Continuity', 'story.step11': 'Connection', 'story.step12': 'Helping Others',
       'story.badgeTitle': '12-Step Foundation',
       'story.badgeText': 'A globally recognised framework for lasting recovery, offered alongside clinical and holistic care.',
       'life.eyebrow': 'Life at Suspiros',
@@ -1076,7 +1078,9 @@
       'story.title': 'Construido sobre los doce pasos.',
       'story.p1': 'Suspiros nace de una idea simple: la recuperación perdura cuando es personal, estructurada y nunca se camina en soledad.',
       'story.p2': 'Nuestro programa está basado en la tradición de los 12 pasos, combinada con atención médica, terapia y una rutina diaria estable.',
-      'story.q1': 'Aceptación', 'story.q2': 'Honestidad', 'story.q3': 'Comunidad', 'story.q4': 'Crecimiento',
+      'story.step1': 'Aceptación', 'story.step2': 'Confianza', 'story.step3': 'Liberación', 'story.step4': 'Comprensión',
+      'story.step5': 'Reconocimiento', 'story.step6': 'Libertad', 'story.step7': 'Crecimiento', 'story.step8': 'Reflexión',
+      'story.step9': 'Perdón', 'story.step10': 'Continuidad', 'story.step11': 'Conexión', 'story.step12': 'Ayudar a otros',
       'story.badgeTitle': 'Fundamento en los 12 Pasos',
       'story.badgeText': 'Un marco reconocido internacionalmente para una recuperación duradera, combinado con cuidado clínico y holístico.',
       'life.eyebrow': 'La Vida en Suspiros',
