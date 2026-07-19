@@ -345,9 +345,10 @@
     display: flex; align-items: center; justify-content: center;
   }
 
-  /* HOW WE HELP (icon-card component, reused by nothing currently but kept for future cards) */
+  /* TREATMENT PROGRAM */
+  .program-alt { background: var(--card); }
   .help-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;
   }
   .help-card {
     background: var(--card); border: 1px solid var(--border);
@@ -553,11 +554,11 @@
 
   @media (max-width: 940px) {
     .nav-links { display: none; }
+    header .nav-cta, header .lang-toggle { display: none; }
+    .nav-toggle { display: flex; position: relative; }
   }
 
   @media (max-width: 860px) {
-    header .nav-cta, header .lang-toggle { display: none; }
-    .nav-toggle { display: flex; position: relative; }
     .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
     .hero p { margin-left: auto; margin-right: auto; }
     .hero-visual { order: -1; max-width: 320px; margin: 0 auto; }
@@ -597,6 +598,7 @@
     <a href="#" class="nav-logo">SUSPIROS</a>
     <ul class="nav-links">
       <li><a href="#story" data-i18n="nav.story">Our Story</a></li>
+      <li><a href="#program" data-i18n="nav.program">Treatment</a></li>
       <li><a href="#life" data-i18n="nav.life">Life at Suspiros</a></li>
       <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
       <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
@@ -620,6 +622,7 @@
 
 <div class="mobile-menu" id="mobileMenu">
   <a href="#story" data-i18n="nav.story">Our Story</a>
+  <a href="#program" data-i18n="nav.program">Treatment</a>
   <a href="#life" data-i18n="nav.life">Life at Suspiros</a>
   <a href="#faq" data-i18n="nav.faq">FAQ</a>
   <a href="#contact" data-i18n="nav.contact">Contact</a>
@@ -684,6 +687,47 @@
               <li><span class="steps-num">12</span><span data-i18n="story.step12">Helping Others</span></li>
             </ol>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TREATMENT PROGRAM -->
+  <section id="program" class="program-alt">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-eyebrow" data-i18n="program.eyebrow">Treatment Program</span>
+        <h2 data-i18n="program.title">Care for the whole person.</h2>
+        <p data-i18n="program.sub">Medical care, therapy, and daily structure, built around your recovery.</p>
+      </div>
+      <div class="help-grid">
+        <div class="help-card reveal">
+          <div class="help-icon">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M3 12h4l2-5 3 10 2-7 2 4h5" stroke="#6F7F58" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3 data-i18n="program.card1Title">Medically Assisted Detox</h3>
+          <p data-i18n="program.card1Text">A clinician manages your physical stabilisation, safely and around the clock.</p>
+        </div>
+        <div class="help-card reveal">
+          <div class="help-icon">
+            <svg viewBox="0 0 24 24" fill="none"><circle cx="9" cy="12" r="5.4" stroke="#6F7F58" stroke-width="1.4"/><circle cx="15" cy="12" r="5.4" stroke="#6F7F58" stroke-width="1.4"/></svg>
+          </div>
+          <h3 data-i18n="program.card2Title">One-to-One Support</h3>
+          <p data-i18n="program.card2Text">A dedicated key worker meets with you weekly to build your personal plan.</p>
+        </div>
+        <div class="help-card reveal">
+          <div class="help-icon">
+            <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="7" r="3.6" stroke="#6F7F58" stroke-width="1.4"/><circle cx="7" cy="16" r="3.6" stroke="#6F7F58" stroke-width="1.4"/><circle cx="17" cy="16" r="3.6" stroke="#6F7F58" stroke-width="1.4"/></svg>
+          </div>
+          <h3 data-i18n="program.card3Title">Group Therapy & Workshops</h3>
+          <p data-i18n="program.card3Text">Daily groups and workshops on relapse prevention, change, and emotional wellbeing.</p>
+        </div>
+        <div class="help-card reveal">
+          <div class="help-icon">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 20c0-5-3-7-3-11a3 3 0 016 0c0 4-3 6-3 11z" stroke="#6F7F58" stroke-width="1.4" stroke-linejoin="round"/><path d="M12 14c-3-1-5-3-5-6M12 14c3-1 5-3 5-6" stroke="#6F7F58" stroke-width="1.4" stroke-linecap="round"/></svg>
+          </div>
+          <h3 data-i18n="program.card4Title">Holistic Practices</h3>
+          <p data-i18n="program.card4Text">Yoga, meditation, and mindfulness, woven into your daily rhythm.</p>
         </div>
       </div>
     </div>
@@ -842,6 +886,7 @@
       </div>
       <ul class="footer-links">
         <li><a href="#story" data-i18n="nav.story">Our Story</a></li>
+        <li><a href="#program" data-i18n="nav.program">Treatment</a></li>
         <li><a href="#life" data-i18n="nav.life">Life at Suspiros</a></li>
         <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
         <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
@@ -1014,6 +1059,7 @@
       'aria.menu': 'Open menu',
       'aria.close': 'Close',
       'nav.story': 'Our Story',
+      'nav.program': 'Treatment',
       'nav.life': 'Life at Suspiros',
       'nav.faq': 'FAQ',
       'nav.contact': 'Contact',
@@ -1031,6 +1077,17 @@
       'story.step9': 'Forgiveness', 'story.step10': 'Continuity', 'story.step11': 'Connection', 'story.step12': 'Helping Others',
       'story.badgeTitle': '12-Step Foundation',
       'story.badgeText': 'A globally recognised framework for lasting recovery, offered alongside clinical and holistic care.',
+      'program.eyebrow': 'Treatment Program',
+      'program.title': 'Care for the whole person.',
+      'program.sub': 'Medical care, therapy, and daily structure, built around your recovery.',
+      'program.card1Title': 'Medically Assisted Detox',
+      'program.card1Text': 'A clinician manages your physical stabilisation, safely and around the clock.',
+      'program.card2Title': 'One-to-One Support',
+      'program.card2Text': 'A dedicated key worker meets with you weekly to build your personal plan.',
+      'program.card3Title': 'Group Therapy & Workshops',
+      'program.card3Text': 'Daily groups and workshops on relapse prevention, change, and emotional wellbeing.',
+      'program.card4Title': 'Holistic Practices',
+      'program.card4Text': 'Yoga, meditation, and mindfulness, woven into your daily rhythm.',
       'life.eyebrow': 'Life at Suspiros',
       'life.title': 'A calm place to heal.',
       'life.grove': 'Orange Grove', 'life.terrace': 'Terrace', 'life.pool': 'Pool',
@@ -1066,6 +1123,7 @@
       'aria.menu': 'Abrir menú',
       'aria.close': 'Cerrar',
       'nav.story': 'Nuestra Historia',
+      'nav.program': 'Tratamiento',
       'nav.life': 'La Vida en Suspiros',
       'nav.faq': 'Preguntas',
       'nav.contact': 'Contacto',
@@ -1083,6 +1141,17 @@
       'story.step9': 'Perdón', 'story.step10': 'Continuidad', 'story.step11': 'Conexión', 'story.step12': 'Ayudar a otros',
       'story.badgeTitle': 'Fundamento en los 12 Pasos',
       'story.badgeText': 'Un marco reconocido internacionalmente para una recuperación duradera, combinado con cuidado clínico y holístico.',
+      'program.eyebrow': 'Programa de Tratamiento',
+      'program.title': 'Cuidado para la persona completa.',
+      'program.sub': 'Atención médica, terapia y una rutina diaria, construida en torno a tu recuperación.',
+      'program.card1Title': 'Desintoxicación Médica',
+      'program.card1Text': 'Un médico supervisa tu estabilización física, con seguridad y las 24 horas.',
+      'program.card2Title': 'Sesiones Individuales',
+      'program.card2Text': 'Un key worker se reúne contigo cada semana para construir tu plan personal.',
+      'program.card3Title': 'Terapia de Grupo y Talleres',
+      'program.card3Text': 'Grupos diarios y talleres sobre prevención de recaídas, cambio y bienestar emocional.',
+      'program.card4Title': 'Prácticas Holísticas',
+      'program.card4Text': 'Yoga, meditación y mindfulness, integrados en tu rutina diaria.',
       'life.eyebrow': 'La Vida en Suspiros',
       'life.title': 'Un lugar tranquilo para sanar.',
       'life.grove': 'Huerto de Naranjos', 'life.terrace': 'Terraza', 'life.pool': 'Piscina',
