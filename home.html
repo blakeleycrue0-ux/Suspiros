@@ -324,47 +324,34 @@
   .story-badge p { color: var(--text-secondary); font-size: 0.92rem; margin: 0; }
 
   .story-visual { width: 100%; max-width: 380px; margin: 0 auto; }
-  .steps-card {
-    background: var(--bg); border: 1px solid var(--border);
-    border-radius: var(--radius-lg); padding: 2rem 1.75rem;
-    box-shadow: var(--shadow-soft);
-  }
-  .steps-list {
-    list-style: none;
+  .steps-plain {
     display: grid; grid-template-columns: 1fr 1fr;
-    gap: 1.1rem 1.25rem;
+    gap: 1.1rem 1.5rem;
   }
-  .steps-list li {
-    display: flex; align-items: center; gap: 0.65rem;
-    font-size: 0.9rem; color: var(--text);
+  .steps-plain-item {
+    display: flex; align-items: baseline; gap: 0.55rem;
+    font-size: 0.96rem; color: var(--text);
   }
-  .steps-num {
-    width: 26px; height: 26px; border-radius: 50%; flex-shrink: 0;
-    background: rgba(169, 184, 141, 0.2); color: var(--primary-dark);
-    font-family: 'Fraunces', serif; font-size: 0.8rem;
-    display: flex; align-items: center; justify-content: center;
+  .steps-plain-num {
+    font-family: 'Fraunces', serif; font-style: italic;
+    color: var(--primary-dark); font-size: 0.88rem; flex-shrink: 0;
   }
 
   /* TREATMENT PROGRAM */
   .program-alt { background: var(--card); }
-  .help-grid {
-    display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;
+  .program-list { max-width: 760px; margin: 0 auto; }
+  .program-item {
+    padding: 1.85rem 0; border-bottom: 1px solid var(--border);
+    display: grid; grid-template-columns: 8rem 1fr; gap: 1.5rem;
   }
-  .help-card {
-    background: var(--card); border: 1px solid var(--border);
-    border-radius: var(--radius-lg); padding: 2.5rem 2rem;
-    transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease), border-color 0.4s var(--ease);
+  .program-item:first-child { padding-top: 0; }
+  .program-item:last-child { border-bottom: none; }
+  .program-num {
+    font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--primary-dark); font-weight: 500;
   }
-  .help-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); border-color: transparent; }
-  .help-icon {
-    width: 52px; height: 52px; border-radius: var(--radius-sm);
-    background: rgba(169, 184, 141, 0.18);
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 1.5rem;
-  }
-  .help-icon svg { width: 24px; height: 24px; }
-  .help-card h3 { font-size: 1.15rem; margin-bottom: 0.6rem; }
-  .help-card p { color: var(--text-secondary); font-size: 0.96rem; }
+  .program-item h3 { font-size: 1.12rem; margin-bottom: 0.5rem; }
+  .program-item p { color: var(--text-secondary); font-size: 0.96rem; max-width: 56ch; }
 
   /* LIFE AT SUSPIROS */
   .life-grid {
@@ -566,7 +553,7 @@
     .story-text p { margin-left: auto; margin-right: auto; }
     .story-badge { margin-left: auto; margin-right: auto; text-align: left; }
     .story-visual { order: -1; }
-    .help-grid { grid-template-columns: 1fr; }
+    .program-item { grid-template-columns: 1fr; gap: 0.4rem; }
     .life-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 140px; }
     .life-tile--wide { grid-column: span 2; }
     .contact-grid { grid-template-columns: 1fr; }
@@ -671,21 +658,19 @@
           </div>
         </div>
         <div class="story-visual reveal">
-          <div class="steps-card">
-            <ol class="steps-list">
-              <li><span class="steps-num">1</span><span data-i18n="story.step1">Acceptance</span></li>
-              <li><span class="steps-num">2</span><span data-i18n="story.step2">Trust</span></li>
-              <li><span class="steps-num">3</span><span data-i18n="story.step3">Liberation</span></li>
-              <li><span class="steps-num">4</span><span data-i18n="story.step4">Understanding</span></li>
-              <li><span class="steps-num">5</span><span data-i18n="story.step5">Acknowledgement</span></li>
-              <li><span class="steps-num">6</span><span data-i18n="story.step6">Freedom</span></li>
-              <li><span class="steps-num">7</span><span data-i18n="story.step7">Growth</span></li>
-              <li><span class="steps-num">8</span><span data-i18n="story.step8">Reflection</span></li>
-              <li><span class="steps-num">9</span><span data-i18n="story.step9">Forgiveness</span></li>
-              <li><span class="steps-num">10</span><span data-i18n="story.step10">Continuity</span></li>
-              <li><span class="steps-num">11</span><span data-i18n="story.step11">Connection</span></li>
-              <li><span class="steps-num">12</span><span data-i18n="story.step12">Helping Others</span></li>
-            </ol>
+          <div class="steps-plain">
+            <div class="steps-plain-item"><span class="steps-plain-num">01</span><span data-i18n="story.step1">Acceptance</span></div>
+            <div class="steps-plain-item"><span class="steps-plain-num">02</span><span data-i18n="story.step2">Trust</span></div>
+            <div class="steps-plain-item"><span class="steps-plain-num">03</span><span data-i18n="story.step3">Liberation</span></div>
+            <div class="steps-plain-item"><span class="steps-plain-num">04</span><span data-i18n="story.step4">Understanding</span></div>
+            <div class="steps-plain-item"><span class="steps-plain-num">05</span><span data-i18n="story.step5">Acknowledgement</span></div>
+            <div class="steps-plain-item"><span class="steps-plain-num">06</span><span data-i18n="story.step6">Freedom</span></div>
+            <div class="steps-plain-item"><span class="steps-plain-num">07</span><span data-i18n="story.step7">Growth</span></div>
+            <div class="steps-plain-item"><span class="steps-plain-num">08</span><span data-i18n="story.step8">Reflection</span></div>
+            <div class="steps-plain-item"><span class="steps-plain-num">09</span><span data-i18n="story.step9">Forgiveness</span></div>
+            <div class="steps-plain-item"><span class="steps-plain-num">10</span><span data-i18n="story.step10">Continuity</span></div>
+            <div class="steps-plain-item"><span class="steps-plain-num">11</span><span data-i18n="story.step11">Connection</span></div>
+            <div class="steps-plain-item"><span class="steps-plain-num">12</span><span data-i18n="story.step12">Helping Others</span></div>
           </div>
         </div>
       </div>
@@ -700,34 +685,34 @@
         <h2 data-i18n="program.title">Care for the whole person.</h2>
         <p data-i18n="program.sub">Medical care, therapy, and daily structure, built around your recovery.</p>
       </div>
-      <div class="help-grid">
-        <div class="help-card reveal">
-          <div class="help-icon">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M3 12h4l2-5 3 10 2-7 2 4h5" stroke="#6F7F58" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="program-list">
+        <div class="program-item reveal">
+          <span class="program-num">01</span>
+          <div>
+            <h3 data-i18n="program.card1Title">Medically Assisted Detox</h3>
+            <p data-i18n="program.card1Text">A clinician manages your physical stabilisation, safely and around the clock.</p>
           </div>
-          <h3 data-i18n="program.card1Title">Medically Assisted Detox</h3>
-          <p data-i18n="program.card1Text">A clinician manages your physical stabilisation, safely and around the clock.</p>
         </div>
-        <div class="help-card reveal">
-          <div class="help-icon">
-            <svg viewBox="0 0 24 24" fill="none"><circle cx="9" cy="12" r="5.4" stroke="#6F7F58" stroke-width="1.4"/><circle cx="15" cy="12" r="5.4" stroke="#6F7F58" stroke-width="1.4"/></svg>
+        <div class="program-item reveal">
+          <span class="program-num">02</span>
+          <div>
+            <h3 data-i18n="program.card2Title">One-to-One Support</h3>
+            <p data-i18n="program.card2Text">A dedicated key worker meets with you weekly to build your personal plan.</p>
           </div>
-          <h3 data-i18n="program.card2Title">One-to-One Support</h3>
-          <p data-i18n="program.card2Text">A dedicated key worker meets with you weekly to build your personal plan.</p>
         </div>
-        <div class="help-card reveal">
-          <div class="help-icon">
-            <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="7" r="3.6" stroke="#6F7F58" stroke-width="1.4"/><circle cx="7" cy="16" r="3.6" stroke="#6F7F58" stroke-width="1.4"/><circle cx="17" cy="16" r="3.6" stroke="#6F7F58" stroke-width="1.4"/></svg>
+        <div class="program-item reveal">
+          <span class="program-num">03</span>
+          <div>
+            <h3 data-i18n="program.card3Title">Group Therapy & Workshops</h3>
+            <p data-i18n="program.card3Text">Daily groups and workshops on relapse prevention, change, and emotional wellbeing.</p>
           </div>
-          <h3 data-i18n="program.card3Title">Group Therapy & Workshops</h3>
-          <p data-i18n="program.card3Text">Daily groups and workshops on relapse prevention, change, and emotional wellbeing.</p>
         </div>
-        <div class="help-card reveal">
-          <div class="help-icon">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M12 20c0-5-3-7-3-11a3 3 0 016 0c0 4-3 6-3 11z" stroke="#6F7F58" stroke-width="1.4" stroke-linejoin="round"/><path d="M12 14c-3-1-5-3-5-6M12 14c3-1 5-3 5-6" stroke="#6F7F58" stroke-width="1.4" stroke-linecap="round"/></svg>
+        <div class="program-item reveal">
+          <span class="program-num">04</span>
+          <div>
+            <h3 data-i18n="program.card4Title">Holistic Practices</h3>
+            <p data-i18n="program.card4Text">Yoga, meditation, and mindfulness, woven into your daily rhythm.</p>
           </div>
-          <h3 data-i18n="program.card4Title">Holistic Practices</h3>
-          <p data-i18n="program.card4Text">Yoga, meditation, and mindfulness, woven into your daily rhythm.</p>
         </div>
       </div>
     </div>
