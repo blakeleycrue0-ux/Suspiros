@@ -261,7 +261,7 @@
     color: var(--text); margin-bottom: 1.25rem;
   }
   .hero p {
-    font-size: 1.08rem; color: var(--text-secondary);
+    font-size: 1.12rem; font-weight: 500; color: var(--text);
     max-width: 34ch; margin-bottom: 2.25rem;
   }
   .btn-primary {
@@ -304,38 +304,23 @@
   /* OUR STORY */
   .story-section { background: var(--card); }
   .story-grid {
-    display: grid; grid-template-columns: 1fr 0.85fr; gap: 4rem;
-    align-items: center;
+    max-width: 640px; margin: 0 auto; text-align: center;
   }
   .story-eyebrow {
     display: block; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase;
     color: var(--primary-dark); font-weight: 500; margin-bottom: 0.9rem;
   }
   .story-text h2 { font-size: clamp(1.8rem, 3.6vw, 2.6rem); margin-bottom: 1.4rem; }
-  .story-text p { color: var(--text-secondary); font-size: 1.04rem; max-width: 46ch; margin-bottom: 1.1rem; }
+  .story-text p { color: var(--text-secondary); font-size: 1.04rem; max-width: 46ch; margin: 0 auto 1.1rem; }
 
   .story-badge {
-    display: flex; gap: 1rem; align-items: flex-start;
+    display: flex; gap: 1rem; align-items: flex-start; text-align: left;
     border-left: 3px solid var(--primary); padding: 0.2rem 0 0.2rem 1.25rem;
-    margin-top: 1.5rem; max-width: 44ch;
+    margin: 1.5rem auto 0; max-width: 44ch;
   }
   .story-badge svg { width: 22px; height: 22px; flex-shrink: 0; margin-top: 0.2rem; }
   .story-badge strong { display: block; font-family: 'Fraunces', serif; font-weight: 500; font-size: 1.02rem; margin-bottom: 0.3rem; }
   .story-badge p { color: var(--text-secondary); font-size: 0.92rem; margin: 0; }
-
-  .story-visual { width: 100%; max-width: 380px; margin: 0 auto; }
-  .steps-plain {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 1.1rem 1.5rem;
-  }
-  .steps-plain-item {
-    display: flex; align-items: baseline; gap: 0.55rem;
-    font-size: 0.96rem; color: var(--text);
-  }
-  .steps-plain-num {
-    font-family: 'Fraunces', serif; font-style: italic;
-    color: var(--primary-dark); font-size: 0.88rem; flex-shrink: 0;
-  }
 
   /* TREATMENT PROGRAM */
   .program-alt { background: var(--card); }
@@ -555,10 +540,6 @@
     .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
     .hero p { margin-left: auto; margin-right: auto; }
     .hero-visual { order: -1; max-width: 320px; margin: 0 auto; }
-    .story-grid { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
-    .story-text p { margin-left: auto; margin-right: auto; }
-    .story-badge { margin-left: auto; margin-right: auto; text-align: left; }
-    .story-visual { order: -1; }
     .program-item { grid-template-columns: 1fr; gap: 0.4rem; }
     .life-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 140px; }
     .life-tile--wide { grid-column: span 2; }
@@ -634,7 +615,7 @@
       <div>
         <span class="hero-eyebrow"><span class="hero-eyebrow-dot"></span>Palma de Mallorca</span>
         <h1 data-i18n="hero.title" data-i18n-html="true">Recovery begins with <em>one decision</em>.</h1>
-        <p data-i18n="hero.sub">A private rehabilitation retreat in Mallorca. Calm surroundings, expert care, one day at a time.</p>
+        <p data-i18n="hero.sub">A private rehabilitation centre for drug and alcohol addiction, in Mallorca.</p>
         <a href="#contact" class="btn-primary">
           <span data-i18n="hero.cta">Book a Confidential Assessment</span>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -661,22 +642,6 @@
               <strong data-i18n="story.badgeTitle">12-Step Foundation</strong>
               <p data-i18n="story.badgeText">A globally recognised framework for lasting recovery, offered alongside clinical and holistic care.</p>
             </div>
-          </div>
-        </div>
-        <div class="story-visual reveal">
-          <div class="steps-plain">
-            <div class="steps-plain-item"><span class="steps-plain-num">01</span><span data-i18n="story.step1">Acceptance</span></div>
-            <div class="steps-plain-item"><span class="steps-plain-num">02</span><span data-i18n="story.step2">Trust</span></div>
-            <div class="steps-plain-item"><span class="steps-plain-num">03</span><span data-i18n="story.step3">Liberation</span></div>
-            <div class="steps-plain-item"><span class="steps-plain-num">04</span><span data-i18n="story.step4">Understanding</span></div>
-            <div class="steps-plain-item"><span class="steps-plain-num">05</span><span data-i18n="story.step5">Acknowledgement</span></div>
-            <div class="steps-plain-item"><span class="steps-plain-num">06</span><span data-i18n="story.step6">Freedom</span></div>
-            <div class="steps-plain-item"><span class="steps-plain-num">07</span><span data-i18n="story.step7">Growth</span></div>
-            <div class="steps-plain-item"><span class="steps-plain-num">08</span><span data-i18n="story.step8">Reflection</span></div>
-            <div class="steps-plain-item"><span class="steps-plain-num">09</span><span data-i18n="story.step9">Forgiveness</span></div>
-            <div class="steps-plain-item"><span class="steps-plain-num">10</span><span data-i18n="story.step10">Continuity</span></div>
-            <div class="steps-plain-item"><span class="steps-plain-num">11</span><span data-i18n="story.step11">Connection</span></div>
-            <div class="steps-plain-item"><span class="steps-plain-num">12</span><span data-i18n="story.step12">Helping Others</span></div>
           </div>
         </div>
       </div>
@@ -1077,15 +1042,12 @@
       'nav.book': 'Book Assessment',
       'nav.emergency': 'Emergency Help',
       'hero.title': 'Recovery begins with <em>one decision</em>.',
-      'hero.sub': 'A private rehabilitation retreat in Mallorca. Calm surroundings, expert care, one day at a time.',
+      'hero.sub': 'A private rehabilitation centre for drug and alcohol addiction, in Mallorca.',
       'hero.cta': 'Book a Confidential Assessment',
       'story.eyebrow': 'Our Story',
       'story.title': 'Built on the twelve steps.',
       'story.p1': 'Suspiros was founded on a simple belief: recovery lasts when it is personal, structured, and never walked alone.',
       'story.p2': 'Our programme is rooted in the 12-Step tradition, blended with medical care, therapy, and a steady daily rhythm.',
-      'story.step1': 'Acceptance', 'story.step2': 'Trust', 'story.step3': 'Liberation', 'story.step4': 'Understanding',
-      'story.step5': 'Acknowledgement', 'story.step6': 'Freedom', 'story.step7': 'Growth', 'story.step8': 'Reflection',
-      'story.step9': 'Forgiveness', 'story.step10': 'Continuity', 'story.step11': 'Connection', 'story.step12': 'Helping Others',
       'story.badgeTitle': '12-Step Foundation',
       'story.badgeText': 'A globally recognised framework for lasting recovery, offered alongside clinical and holistic care.',
       'program.eyebrow': 'Treatment Program',
@@ -1142,15 +1104,12 @@
       'nav.book': 'Reservar Valoración',
       'nav.emergency': 'Ayuda Urgente',
       'hero.title': 'La recuperación empieza con <em>una decisión</em>.',
-      'hero.sub': 'Un retiro privado de rehabilitación en Mallorca. Entorno tranquilo, cuidado experto, un día a la vez.',
+      'hero.sub': 'Un centro privado de rehabilitación para adicciones a drogas y alcohol, en Mallorca.',
       'hero.cta': 'Reserva una Valoración Confidencial',
       'story.eyebrow': 'Nuestra Historia',
       'story.title': 'Construido sobre los doce pasos.',
       'story.p1': 'Suspiros nace de una idea simple: la recuperación perdura cuando es personal, estructurada y nunca se camina en soledad.',
       'story.p2': 'Nuestro programa está basado en la tradición de los 12 pasos, combinada con atención médica, terapia y una rutina diaria estable.',
-      'story.step1': 'Aceptación', 'story.step2': 'Confianza', 'story.step3': 'Liberación', 'story.step4': 'Comprensión',
-      'story.step5': 'Reconocimiento', 'story.step6': 'Libertad', 'story.step7': 'Crecimiento', 'story.step8': 'Reflexión',
-      'story.step9': 'Perdón', 'story.step10': 'Continuidad', 'story.step11': 'Conexión', 'story.step12': 'Ayudar a otros',
       'story.badgeTitle': 'Fundamento en los 12 Pasos',
       'story.badgeText': 'Un marco reconocido internacionalmente para una recuperación duradera, combinado con cuidado clínico y holístico.',
       'program.eyebrow': 'Programa de Tratamiento',
