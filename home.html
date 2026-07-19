@@ -160,12 +160,14 @@
   .nav-links a:hover::after { transform: scaleX(1); transform-origin: left; }
 
   .nav-logo {
+    display: inline-flex; align-items: center; gap: 0.6rem;
     font-family: 'Fraunces', serif;
     font-size: 1.15rem; font-weight: 500;
     letter-spacing: 0.2em;
     text-decoration: none; color: var(--text);
     flex-shrink: 0;
   }
+  .nav-logo img { width: 34px; height: 34px; object-fit: contain; flex-shrink: 0; }
 
   .nav-actions { display: flex; align-items: center; gap: 0.7rem; }
 
@@ -300,6 +302,23 @@
 
   .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
   .reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+  /* WHO WE ARE */
+  .about-grid {
+    display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem;
+    align-items: center;
+  }
+  .about-text h2 {
+    font-size: clamp(2rem, 4vw, 2.9rem); margin-bottom: 1.2rem;
+  }
+  .about-text p { color: var(--text-secondary); font-size: 1.08rem; max-width: 46ch; margin-bottom: 1.5rem; }
+  .about-tags {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem;
+    font-size: 0.86rem; letter-spacing: 0.04em; color: var(--text);
+  }
+  .about-tag-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--primary); flex-shrink: 0; }
+  .about-visual { width: 100%; max-width: 420px; margin: 0 auto; }
+  .about-visual img { width: 100%; height: auto; }
 
   /* OUR STORY */
   .story-section { background: var(--card); }
@@ -540,6 +559,10 @@
     .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
     .hero p { margin-left: auto; margin-right: auto; }
     .hero-visual { order: -1; max-width: 320px; margin: 0 auto; }
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
+    .about-text p { margin-left: auto; margin-right: auto; }
+    .about-tags { justify-content: center; }
+    .about-visual { order: -1; max-width: 260px; }
     .program-item { grid-template-columns: 1fr; gap: 0.4rem; }
     .life-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 140px; }
     .life-tile--wide { grid-column: span 2; }
@@ -569,8 +592,9 @@
 
 <header>
   <nav aria-label="Primary">
-    <a href="#" class="nav-logo">SUSPIROS</a>
+    <a href="#" class="nav-logo"><img src="images/logo.png" alt="" width="68" height="68" loading="eager">SUSPIROS</a>
     <ul class="nav-links">
+      <li><a href="#about" data-i18n="nav.about">About</a></li>
       <li><a href="#story" data-i18n="nav.story">Our Story</a></li>
       <li><a href="#program" data-i18n="nav.program">Treatment</a></li>
       <li><a href="#life" data-i18n="nav.life">Life at Suspiros</a></li>
@@ -595,6 +619,7 @@
 </header>
 
 <div class="mobile-menu" id="mobileMenu">
+  <a href="#about" data-i18n="nav.about">About</a>
   <a href="#story" data-i18n="nav.story">Our Story</a>
   <a href="#program" data-i18n="nav.program">Treatment</a>
   <a href="#life" data-i18n="nav.life">Life at Suspiros</a>
@@ -623,6 +648,27 @@
       </div>
       <div class="hero-visual" id="heroVisual">
         <img class="parallax-layer" data-depth="8" src="images/hero-villa.jpeg" alt="Aerial illustration of the Suspiros villa in Mallorca, with pool and gardens" width="1107" height="753" loading="eager" fetchpriority="high">
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO WE ARE -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <span class="section-eyebrow" data-i18n="about.eyebrow">Who We Are</span>
+          <h2 data-i18n="about.title" data-i18n-html="true">A private centre for addiction <em>recovery</em>.</h2>
+          <p data-i18n="about.lead">We treat drug and alcohol addiction with evidence-based care, in a structured and deeply human residential setting in Mallorca.</p>
+          <div class="about-tags">
+            <span data-i18n="about.tag1">Residential Care</span><span class="about-tag-dot"></span>
+            <span data-i18n="about.tag2">Evidence-Based Treatment</span><span class="about-tag-dot"></span>
+            <span data-i18n="about.tag3">24-Hour Support</span>
+          </div>
+        </div>
+        <div class="about-visual reveal">
+          <img src="images/logo.png" alt="Suspiros — illustrated emblem of the villa" width="1535" height="1024" loading="lazy">
+        </div>
       </div>
     </div>
   </section>
@@ -846,6 +892,7 @@
         <div class="footer-tag" data-i18n="footer.tag">A deep breath that expresses relief, love, or longing.</div>
       </div>
       <ul class="footer-links">
+        <li><a href="#about" data-i18n="nav.about">About</a></li>
         <li><a href="#story" data-i18n="nav.story">Our Story</a></li>
         <li><a href="#program" data-i18n="nav.program">Treatment</a></li>
         <li><a href="#life" data-i18n="nav.life">Life at Suspiros</a></li>
@@ -1034,6 +1081,7 @@
       'aria.skip': 'Skip to content',
       'aria.menu': 'Open menu',
       'aria.close': 'Close',
+      'nav.about': 'About',
       'nav.story': 'Our Story',
       'nav.program': 'Treatment',
       'nav.life': 'Life at Suspiros',
@@ -1044,6 +1092,12 @@
       'hero.title': 'Recovery begins with <em>one decision</em>.',
       'hero.sub': 'A private rehabilitation centre for drug and alcohol addiction, in Mallorca.',
       'hero.cta': 'Book a Confidential Assessment',
+      'about.eyebrow': 'Who We Are',
+      'about.title': 'A private centre for addiction <em>recovery</em>.',
+      'about.lead': 'We treat drug and alcohol addiction with evidence-based care, in a structured and deeply human residential setting in Mallorca.',
+      'about.tag1': 'Residential Care',
+      'about.tag2': 'Evidence-Based Treatment',
+      'about.tag3': '24-Hour Support',
       'story.eyebrow': 'Our Story',
       'story.title': 'Built on the twelve steps.',
       'story.p1': 'Suspiros was founded on a simple belief: recovery lasts when it is personal, structured, and never walked alone.',
@@ -1096,6 +1150,7 @@
       'aria.skip': 'Saltar al contenido',
       'aria.menu': 'Abrir menú',
       'aria.close': 'Cerrar',
+      'nav.about': 'Quiénes Somos',
       'nav.story': 'Nuestra Historia',
       'nav.program': 'Tratamiento',
       'nav.life': 'La Vida en Suspiros',
@@ -1106,6 +1161,12 @@
       'hero.title': 'La recuperación empieza con <em>una decisión</em>.',
       'hero.sub': 'Un centro privado de rehabilitación para adicciones a drogas y alcohol, en Mallorca.',
       'hero.cta': 'Reserva una Valoración Confidencial',
+      'about.eyebrow': 'Quiénes Somos',
+      'about.title': 'Un centro privado para la <em>recuperación</em> de adicciones.',
+      'about.lead': 'Tratamos la adicción a drogas y alcohol con cuidado basado en la evidencia, en un entorno residencial estructurado y profundamente humano, en Mallorca.',
+      'about.tag1': 'Cuidado Residencial',
+      'about.tag2': 'Tratamiento Basado en la Evidencia',
+      'about.tag3': 'Apoyo las 24 Horas',
       'story.eyebrow': 'Nuestra Historia',
       'story.title': 'Construido sobre los doce pasos.',
       'story.p1': 'Suspiros nace de una idea simple: la recuperación perdura cuando es personal, estructurada y nunca se camina en soledad.',
