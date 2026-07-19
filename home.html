@@ -166,6 +166,8 @@
   }
   .nav-logo img { width: 46px; height: 46px; object-fit: contain; flex-shrink: 0; }
 
+  .nav-actions { display: flex; align-items: center; gap: 0.9rem; }
+
   .lang-toggle {
     display: flex; align-items: center; border: 1px solid var(--border);
     border-radius: 999px; padding: 3px; flex-shrink: 0;
@@ -545,6 +547,7 @@
 
   @media (max-width: 940px) {
     .nav-links { display: none; }
+    header .nav-actions { display: none; }
   }
 
   @media (max-width: 860px) {
@@ -587,6 +590,13 @@
       <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
       <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
     </ul>
+    <div class="nav-actions">
+      <div class="lang-toggle" id="langToggle">
+        <button type="button" data-lang="en">EN</button>
+        <button type="button" data-lang="es">ES</button>
+      </div>
+      <a href="#contact" class="nav-cta" data-i18n="nav.book">Book Assessment</a>
+    </div>
     <button class="nav-toggle" id="navToggle" aria-label="Open menu" data-i18n-aria="aria.menu" aria-expanded="false" aria-controls="mobileMenu">
       <svg class="icon-menu" viewBox="0 0 24 24" fill="none"><line x1="4" y1="7" x2="20" y2="7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><line x1="4" y1="12" x2="20" y2="12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><line x1="4" y1="17" x2="20" y2="17" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
       <svg class="icon-close" viewBox="0 0 24 24" fill="none"><line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
