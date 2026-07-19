@@ -102,14 +102,6 @@
   }
   .skip-link:focus { left: 0; }
 
-  /* SCROLL PROGRESS */
-  .scroll-progress {
-    position: fixed; top: 0; left: 0; right: 0; height: 3px;
-    z-index: 300; background: var(--primary-dark);
-    transform: scaleX(0); transform-origin: left;
-    transition: transform 0.1s linear;
-  }
-
   /* PRELOADER */
   .preloader {
     position: fixed; inset: 0; z-index: 500;
@@ -286,10 +278,14 @@
   .btn-primary:hover svg { transform: translateX(3px); }
 
   .hero-visual {
-    position: relative; aspect-ratio: 1 / 1;
-    display: flex; align-items: center; justify-content: center;
+    position: relative; width: 100%; aspect-ratio: 4 / 3;
+    border-radius: var(--radius-lg); overflow: hidden;
+    box-shadow: var(--shadow-hover);
   }
-  .hero-visual svg { width: 100%; height: 100%; }
+  .hero-visual img {
+    position: absolute; inset: -4%; width: 108%; height: 108%;
+    object-fit: cover;
+  }
   .parallax-layer { transition: transform 0.2s var(--ease); will-change: transform; }
 
   /* SECTION SCAFFOLDING */
@@ -581,7 +577,6 @@
 <body>
 
 <a href="#main" class="skip-link" data-i18n="aria.skip">Skip to content</a>
-<div class="scroll-progress" id="scrollProgress"></div>
 
 <div class="preloader" id="preloader" aria-hidden="true">
   <div class="preloader-mark"><span class="preloader-dot"></span>SUSPIROS</div>
@@ -639,14 +634,8 @@
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>
-      <div class="hero-visual" id="heroVisual" aria-hidden="true">
-        <svg viewBox="0 0 500 500" fill="none">
-          <circle class="parallax-layer" data-depth="10" cx="250" cy="250" r="230" fill="#F1EFE6"/>
-          <circle class="parallax-layer" data-depth="28" cx="340" cy="150" r="62" fill="#D8DED2"/>
-          <path class="parallax-layer" data-depth="18" d="M20 330C110 270 180 300 250 320C330 344 400 300 480 250V470H20V330Z" fill="#C9D3B7"/>
-          <path class="parallax-layer" data-depth="34" d="M20 380C120 340 200 365 260 380C350 402 420 365 480 335V470H20V380Z" fill="#A9B88D"/>
-          <path class="parallax-layer" data-depth="46" d="M20 420C130 400 220 415 280 420C360 428 420 405 480 390V470H20V420Z" fill="#6F7F58"/>
-        </svg>
+      <div class="hero-visual" id="heroVisual">
+        <img class="parallax-layer" data-depth="8" src="images/hero-villa.jpeg" alt="Aerial illustration of the Suspiros villa in Mallorca, with pool and gardens" width="1107" height="753" loading="eager" fetchpriority="high">
       </div>
     </div>
   </section>
@@ -897,8 +886,7 @@
     }, wait);
   });
 
-  /* Scroll progress */
-  var progressBar = document.getElementById('scrollProgress');
+  /* Floating CTA visibility */
   var floatingCta = document.getElementById('floatingCta');
   var ticking = false;
   function onScroll() {
@@ -906,9 +894,6 @@
       requestAnimationFrame(function () {
         var doc = document.documentElement;
         var scrollTop = doc.scrollTop || document.body.scrollTop;
-        var scrollHeight = (doc.scrollHeight || document.body.scrollHeight) - doc.clientHeight;
-        var pct = scrollHeight > 0 ? scrollTop / scrollHeight : 0;
-        progressBar.style.transform = 'scaleX(' + pct + ')';
         floatingCta.classList.toggle('is-visible', scrollTop > window.innerHeight * 0.9);
         ticking = false;
       });
