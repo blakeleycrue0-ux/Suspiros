@@ -446,6 +446,12 @@
   }
   .field textarea { resize: vertical; min-height: 110px; }
   .form-note { font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.75rem; }
+  .hp-field { position: absolute; left: -9999px; }
+  .form-error {
+    display: none; font-size: 0.85rem; color: var(--urgent-dark);
+    margin-top: 0.9rem;
+  }
+  .form-error.is-visible { display: block; }
   .form-success {
     display: none; text-align: center; padding: 2.5rem 1rem;
     background: rgba(169, 184, 141, 0.14); border-radius: var(--radius-lg);
@@ -826,7 +832,11 @@
         </div>
 
         <div class="reveal">
-          <form id="enquiryForm" novalidate>
+          <form id="enquiryForm" name="admission-enquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+            <input type="hidden" name="form-name" value="admission-enquiry">
+            <p class="hp-field" aria-hidden="true">
+              <label>Don't fill this out: <input tabindex="-1" autocomplete="off" name="bot-field"></label>
+            </p>
             <div class="form-row">
               <div class="field">
                 <label for="name" data-i18n="form.name">Name</label>
@@ -850,6 +860,7 @@
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
             <p class="form-note" data-i18n="form.note">All enquiries are confidential and reviewed by our admissions team.</p>
+            <p class="form-error" id="formError" data-i18n="form.error">Something went wrong sending your message. Please try again, or call or email us directly.</p>
           </form>
           <div class="form-success" id="formSuccess">
             <h3 data-i18n="form.thanks">Thank you.</h3>
@@ -1003,14 +1014,29 @@
     });
   });
 
-  /* Enquiry form */
+  /* Enquiry form (submits to Netlify Forms) */
   var form = document.getElementById('enquiryForm');
   var success = document.getElementById('formSuccess');
+  var formError = document.getElementById('formError');
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     if (!form.checkValidity()) { form.reportValidity(); return; }
-    form.style.display = 'none';
-    success.classList.add('is-visible');
+    formError.classList.remove('is-visible');
+    var submitBtn = form.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    var body = new URLSearchParams(new FormData(form)).toString();
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: body
+    }).then(function (response) {
+      if (!response.ok) throw new Error('Form submission failed');
+      form.style.display = 'none';
+      success.classList.add('is-visible');
+    }).catch(function () {
+      formError.classList.add('is-visible');
+      submitBtn.disabled = false;
+    });
   });
 
   /* Emergency modal */
@@ -1092,6 +1118,7 @@
       'form.name': 'Name', 'form.phone': 'Phone', 'form.email': 'Email', 'form.message': 'Message',
       'form.send': 'Send Enquiry',
       'form.note': 'All enquiries are confidential and reviewed by our admissions team.',
+      'form.error': 'Something went wrong sending your message. Please try again, or call or email us directly.',
       'form.thanks': 'Thank you.', 'form.thanksSub': "We've received your message and will be in touch shortly.",
       'footer.tag': 'A deep breath that expresses relief, love, or longing.',
       'footer.copy': '© 2026 Suspiros Rehabilitation, Palma de Mallorca. All rights reserved.',
@@ -1156,6 +1183,7 @@
       'form.name': 'Nombre', 'form.phone': 'Teléfono', 'form.email': 'Correo electrónico', 'form.message': 'Mensaje',
       'form.send': 'Enviar Consulta',
       'form.note': 'Todas las consultas son confidenciales y las revisa nuestro equipo de admisiones.',
+      'form.error': 'Ha ocurrido un error al enviar tu mensaje. Inténtalo de nuevo, o llámanos o escríbenos directamente.',
       'form.thanks': 'Gracias.', 'form.thanksSub': 'Hemos recibido tu mensaje y te contactaremos en breve.',
       'footer.tag': 'Una respiración profunda que expresa alivio, amor o anhelo.',
       'footer.copy': '© 2026 Suspiros Rehabilitation, Palma de Mallorca. Todos los derechos reservados.',
