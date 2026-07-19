@@ -160,14 +160,11 @@
   .nav-links a:hover::after { transform: scaleX(1); transform-origin: left; }
 
   .nav-logo {
-    display: inline-flex; align-items: center; gap: 0.6rem;
-    font-family: 'Fraunces', serif;
-    font-size: 1.15rem; font-weight: 500;
-    letter-spacing: 0.2em;
+    display: inline-flex; align-items: center;
     text-decoration: none; color: var(--text);
     flex-shrink: 0;
   }
-  .nav-logo img { width: 34px; height: 34px; object-fit: contain; flex-shrink: 0; }
+  .nav-logo img { width: 46px; height: 46px; object-fit: contain; flex-shrink: 0; }
 
   .nav-actions { display: flex; align-items: center; gap: 0.7rem; }
 
@@ -305,20 +302,17 @@
 
   /* WHO WE ARE */
   .about-grid {
-    display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem;
-    align-items: center;
+    max-width: 640px; margin: 0 auto; text-align: center;
   }
   .about-text h2 {
     font-size: clamp(2rem, 4vw, 2.9rem); margin-bottom: 1.2rem;
   }
-  .about-text p { color: var(--text-secondary); font-size: 1.08rem; max-width: 46ch; margin-bottom: 1.5rem; }
+  .about-text p { color: var(--text-secondary); font-size: 1.08rem; max-width: 46ch; margin: 0 auto 1.5rem; }
   .about-tags {
-    display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem;
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.6rem;
     font-size: 0.86rem; letter-spacing: 0.04em; color: var(--text);
   }
   .about-tag-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--primary); flex-shrink: 0; }
-  .about-visual { width: 100%; max-width: 420px; margin: 0 auto; }
-  .about-visual img { width: 100%; height: auto; }
 
   /* OUR STORY */
   .story-section { background: var(--card); }
@@ -559,10 +553,6 @@
     .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
     .hero p { margin-left: auto; margin-right: auto; }
     .hero-visual { order: -1; max-width: 320px; margin: 0 auto; }
-    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
-    .about-text p { margin-left: auto; margin-right: auto; }
-    .about-tags { justify-content: center; }
-    .about-visual { order: -1; max-width: 260px; }
     .program-item { grid-template-columns: 1fr; gap: 0.4rem; }
     .life-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 140px; }
     .life-tile--wide { grid-column: span 2; }
@@ -577,7 +567,6 @@
   }
 
   @media (max-width: 420px) {
-    .nav-logo { font-size: 1rem; letter-spacing: 0.14em; }
     .btn-urgent { padding: 0.6rem 0.85rem; font-size: 0.74rem; }
   }
 </style>
@@ -592,7 +581,7 @@
 
 <header>
   <nav aria-label="Primary">
-    <a href="#" class="nav-logo"><img src="images/logo.png" alt="" width="68" height="68" loading="eager">SUSPIROS</a>
+    <a href="#" class="nav-logo"><img src="images/logo.png" alt="Suspiros" width="68" height="68" loading="eager"></a>
     <ul class="nav-links">
       <li><a href="#about" data-i18n="nav.about">About</a></li>
       <li><a href="#story" data-i18n="nav.story">Our Story</a></li>
@@ -665,9 +654,6 @@
             <span data-i18n="about.tag2">Evidence-Based Treatment</span><span class="about-tag-dot"></span>
             <span data-i18n="about.tag3">24-Hour Support</span>
           </div>
-        </div>
-        <div class="about-visual reveal">
-          <img src="images/logo.png" alt="Suspiros — illustrated emblem of the villa" width="1535" height="1024" loading="lazy">
         </div>
       </div>
     </div>
