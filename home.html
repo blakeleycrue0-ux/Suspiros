@@ -243,7 +243,7 @@
     padding: 0.95rem 0; border-bottom: 1px solid var(--border);
   }
   .mobile-menu-actions {
-    display: flex; align-items: center; justify-content: center;
+    display: flex; align-items: center; justify-content: flex-start;
     flex-wrap: wrap; gap: 1.5rem; margin-top: 2rem;
   }
   .mobile-menu-actions .nav-cta {
@@ -664,7 +664,7 @@
     <path d="M20 390C120 350 200 375 260 390C350 412 420 375 480 345" stroke="#6F7F58" stroke-width="1.4"/>
   </svg>
   <div class="mobile-menu-inner">
-    <nav class="mobile-menu-links" aria-label="Menu">
+    <div class="mobile-menu-links" role="navigation" aria-label="Menu">
       <a href="#about" data-i18n="nav.about">About</a>
       <a href="#story" data-i18n="nav.story">Our Story</a>
       <a href="#program" data-i18n="nav.program">Treatment</a>
@@ -672,7 +672,7 @@
       <a href="#family" data-i18n="nav.family">For Families</a>
       <a href="#faq" data-i18n="nav.faq">FAQ</a>
       <a href="#contact" data-i18n="nav.contact">Contact</a>
-    </nav>
+    </div>
     <div class="mobile-menu-actions">
       <a href="#contact" class="nav-cta" data-i18n="nav.book">Book Assessment</a>
       <button type="button" class="btn-urgent" id="emergencyOpen" aria-haspopup="dialog" aria-controls="emergencyOverlay">
