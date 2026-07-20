@@ -711,3 +711,48 @@
   @media (max-width: 860px) {
     .reviews-grid { grid-template-columns: 1fr; }
   }
+
+  /* HOW WE WORK (dark accordion) */
+  .how-we-work { background: var(--primary-dark); color: #fff; }
+  .how-we-work .section-head h2 { color: #fff; }
+  .how-we-work .section-head p { color: rgba(255, 255, 255, 0.78); }
+  .how-we-work .section-eyebrow { color: rgba(255, 255, 255, 0.85); }
+  .dark-accordion { max-width: 760px; margin: 0 auto; }
+  .dark-accordion .faq-item { border-bottom: 1px solid rgba(255, 255, 255, 0.22); }
+  .dark-accordion .faq-question { color: #fff; }
+  .dark-accordion .faq-plus::before, .dark-accordion .faq-plus::after { background: #fff; }
+  .dark-accordion .faq-answer p { color: rgba(255, 255, 255, 0.78); }
+
+  /* WE'RE HERE TO HELP (condition cards) */
+  .help-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;
+    max-width: 900px; margin: 0 auto;
+  }
+  .help-card {
+    background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-lg);
+    padding: 2.25rem 2rem; display: flex; flex-direction: column; gap: 1rem;
+  }
+  .help-card-icon {
+    width: 52px; height: 52px; border-radius: 50%;
+    background: rgba(169, 184, 141, 0.18);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .help-card-icon svg { width: 24px; height: 24px; }
+  .help-card h3 { font-size: 1.15rem; }
+  .help-card p { color: var(--text-secondary); font-size: 0.96rem; }
+  @media (max-width: 640px) {
+    .help-grid { grid-template-columns: 1fr; }
+  }
+
+  /* INTERVENTION / FAMILY SUPPORT CTA */
+  .intervention-card {
+    background: var(--bg); border-radius: var(--radius-lg);
+    padding: 2.75rem 2.5rem; max-width: 760px; margin: 0 auto; text-align: center;
+    box-shadow: var(--shadow-soft);
+  }
+  .about-grid + .intervention-card { margin-top: 4rem; }
+  .intervention-card h2 { font-size: clamp(1.6rem, 3.2vw, 2.2rem); margin-bottom: 1.1rem; }
+  .intervention-card p { color: var(--text-secondary); font-size: 1.02rem; max-width: 56ch; margin: 0 auto 1.75rem; }
+  @media (max-width: 640px) {
+    .intervention-card { padding: 2.25rem 1.5rem; }
+  }
