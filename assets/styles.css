@@ -632,6 +632,8 @@
     transition: gap 0.3s var(--ease);
   }
   .teaser-link:hover { gap: 0.8rem; }
+  .about-tags + .teaser-link { margin-top: 1.75rem; }
+  .section-more { text-align: center; margin-top: 2.75rem; }
   .home-cta { background: var(--primary-dark); color: #fff; text-align: center; }
   .home-cta h2 { color: #fff; font-size: clamp(1.8rem, 3.6vw, 2.6rem); margin-bottom: 1rem; }
   .home-cta p { color: rgba(255, 255, 255, 0.82); font-size: 1.04rem; max-width: 46ch; margin: 0 auto 1.75rem; }
