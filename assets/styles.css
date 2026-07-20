@@ -658,11 +658,11 @@
     color: var(--text-secondary); font-size: 0.92rem; font-style: italic;
   }
 
-  /* TEAM GRID + PHOTO PLACEHOLDERS */
-  .team-grid {
-    display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.5rem 2.25rem;
+  /* TEAM SLIDER + PHOTO PLACEHOLDERS */
+  .team-card {
+    flex: 0 0 auto; width: min(300px, 78vw); scroll-snap-align: start;
+    display: flex; flex-direction: column; gap: 1.1rem;
   }
-  .team-card { display: flex; flex-direction: column; gap: 1.1rem; }
   .team-photo-placeholder {
     aspect-ratio: 4 / 3; border-radius: var(--radius-md);
     background: rgba(169, 184, 141, 0.14);
@@ -677,9 +677,6 @@
   .team-card h3 { font-size: 1.1rem; margin-bottom: 0.4rem; }
   .team-card p { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 0.6rem; }
   .team-card p:last-child { margin-bottom: 0; }
-  @media (max-width: 640px) {
-    .team-grid { grid-template-columns: 1fr; }
-  }
 
   /* REVIEWS PLACEHOLDER */
   .reviews-grid {
@@ -717,32 +714,49 @@
   .how-we-work .section-head h2 { color: #fff; }
   .how-we-work .section-head p { color: rgba(255, 255, 255, 0.78); }
   .how-we-work .section-eyebrow { color: rgba(255, 255, 255, 0.85); }
-  .dark-accordion { max-width: 760px; margin: 0 auto; }
-  .dark-accordion .faq-item { border-bottom: 1px solid rgba(255, 255, 255, 0.22); }
+  .how-photo-placeholder {
+    max-width: 760px; margin: 0 auto 3rem; aspect-ratio: 16 / 6;
+    border-radius: var(--radius-lg);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px dashed rgba(255, 255, 255, 0.35);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 0.7rem; color: rgba(255, 255, 255, 0.75);
+  }
+  .how-photo-placeholder svg { width: 34px; height: 34px; opacity: 0.75; }
+  .how-photo-placeholder span {
+    font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .dark-accordion { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem; }
+  .dark-accordion .faq-item {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-md);
+    padding: 0.25rem 1.5rem;
+  }
   .dark-accordion .faq-question { color: #fff; }
   .dark-accordion .faq-plus::before, .dark-accordion .faq-plus::after { background: #fff; }
-  .dark-accordion .faq-answer p { color: rgba(255, 255, 255, 0.78); }
-
-  /* WE'RE HERE TO HELP (condition cards) */
-  .help-grid {
-    display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;
-    max-width: 900px; margin: 0 auto;
+  .dark-accordion .faq-answer p { color: rgba(255, 255, 255, 0.78); padding-left: 0; padding-right: 0; }
+  @media (max-width: 640px) {
+    .how-photo-placeholder { aspect-ratio: 4 / 3; }
   }
+
+  /* WE'RE HERE TO HELP (condition card slider) */
+  .slider-track {
+    display: flex; gap: 1.5rem; overflow-x: auto;
+    scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+    padding: 0.25rem 0.25rem 1.25rem;
+    scrollbar-width: thin; scrollbar-color: var(--border) transparent;
+  }
+  .slider-track::-webkit-scrollbar { height: 6px; }
+  .slider-track::-webkit-scrollbar-thumb { background: var(--border); border-radius: 999px; }
   .help-card {
-    background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-lg);
+    flex: 0 0 auto; width: min(380px, 82vw); scroll-snap-align: start;
+    border-radius: var(--radius-lg);
     padding: 2.25rem 2rem; display: flex; flex-direction: column; gap: 1rem;
   }
-  .help-card-icon {
-    width: 52px; height: 52px; border-radius: 50%;
-    background: rgba(169, 184, 141, 0.18);
-    display: flex; align-items: center; justify-content: center;
-  }
-  .help-card-icon svg { width: 24px; height: 24px; }
+  .help-card.tone-a { background: rgba(169, 184, 141, 0.16); }
+  .help-card.tone-b { background: #EFE8DA; }
   .help-card h3 { font-size: 1.15rem; }
   .help-card p { color: var(--text-secondary); font-size: 0.96rem; }
-  @media (max-width: 640px) {
-    .help-grid { grid-template-columns: 1fr; }
-  }
 
   /* INTERVENTION / FAMILY SUPPORT CTA */
   .intervention-card {
