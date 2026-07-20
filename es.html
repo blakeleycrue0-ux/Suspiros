@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-force-lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,641 +45,7 @@
   }
 }
 </script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "¿Es confidencial el programa?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Sí. Cada consulta y cada estancia son totalmente privadas." }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Cuánto dura el tratamiento?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Los programas suelen durar de 8 a 12 semanas, adaptados a ti." }
-    },
-    {
-      "@type": "Question",
-      "name": "¿La desintoxicación está supervisada médicamente?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Sí. Un médico supervisa cada paso, día y noche." }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Puede visitarme mi familia?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Sí, tras un periodo inicial de adaptación, con cita previa." }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Qué ocurre después de irme?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Construimos tu plan de recuperación juntos, mucho antes de que te vayas." }
-    }
-  ]
-}
-</script>
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --primary: #A9B88D;
-    --primary-dark: #6F7F58;
-    --bg: #FAF9F5;
-    --card: #FFFFFF;
-    --text: #2F332D;
-    --text-secondary: #6E756A;
-    --border: #D8DED2;
-    --urgent: #B5453A;
-    --urgent-dark: #93362D;
-    --radius-lg: 24px;
-    --radius-md: 16px;
-    --radius-sm: 12px;
-    --shadow-soft: 0 12px 32px rgba(47, 51, 45, 0.06);
-    --shadow-hover: 0 20px 48px rgba(47, 51, 45, 0.10);
-    --ease: cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  html { scroll-behavior: smooth; }
-
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    *, *::before, *::after {
-      animation-duration: 0.001ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.001ms !important;
-      scroll-behavior: auto !important;
-    }
-  }
-
-  body {
-    font-family: 'Inter', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    font-weight: 400;
-    line-height: 1.6;
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  h1, h2, h3, h4 {
-    font-family: 'Fraunces', serif;
-    font-weight: 500;
-    line-height: 1.2;
-    letter-spacing: -0.005em;
-  }
-
-  em {
-    font-style: italic;
-    font-weight: 400;
-    color: var(--primary-dark);
-  }
-
-  a { color: inherit; }
-  img, svg { display: block; max-width: 100%; }
-  button { font-family: inherit; cursor: pointer; }
-
-  :focus-visible { outline: 2px solid var(--primary-dark); outline-offset: 3px; border-radius: 4px; }
-
-  .container {
-    max-width: 1160px;
-    margin: 0 auto;
-    padding: 0 1.75rem;
-  }
-
-  .skip-link {
-    position: absolute; left: -999px; top: 0; z-index: 1000;
-    background: var(--primary-dark); color: #fff;
-    padding: 0.8rem 1.4rem; border-radius: 0 0 var(--radius-sm) 0;
-    font-size: 0.9rem;
-  }
-  .skip-link:focus { left: 0; }
-
-  /* PRELOADER */
-  .preloader {
-    position: fixed; inset: 0; z-index: 500;
-    background: var(--bg);
-    display: flex; align-items: center; justify-content: center;
-    transition: opacity 0.7s var(--ease), visibility 0.7s var(--ease);
-  }
-  .preloader.is-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
-  .preloader-mark {
-    font-family: 'Fraunces', serif;
-    font-size: 1rem;
-    letter-spacing: 0.32em;
-    color: var(--primary-dark);
-    display: flex; align-items: center; gap: 0.7rem;
-  }
-  .preloader-dot {
-    width: 8px; height: 8px; border-radius: 50%;
-    background: var(--primary);
-    animation: breathe 1.6s ease-in-out infinite;
-  }
-  @keyframes breathe {
-    0%, 100% { transform: scale(0.7); opacity: 0.5; }
-    50% { transform: scale(1); opacity: 1; }
-  }
-
-  /* ANNOUNCEMENT BAR */
-  .announcement-bar {
-    background: var(--primary-dark);
-    color: #fff;
-    text-align: center;
-    font-size: 0.8rem;
-    letter-spacing: 0.01em;
-    padding: 0.55rem 1.25rem;
-  }
-
-  /* NAV */
-  header {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-    background: rgba(250, 249, 245, 0.86);
-    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-    border-bottom: 1px solid var(--border);
-  }
-  nav {
-    display: flex; align-items: center; justify-content: space-between;
-    gap: 1rem;
-    padding: 1.1rem 1.75rem;
-    max-width: 1160px; margin: 0 auto;
-  }
-  .nav-links {
-    display: flex; align-items: center; gap: 1.7rem;
-    list-style: none;
-  }
-  .nav-links a {
-    text-decoration: none; color: var(--text-secondary);
-    font-size: 0.84rem; font-weight: 500;
-    transition: color 0.25s var(--ease);
-    position: relative; white-space: nowrap;
-  }
-  .nav-links a::after {
-    content: ''; position: absolute; left: 0; right: 0; bottom: -4px;
-    height: 1px; background: var(--primary-dark);
-    transform: scaleX(0); transform-origin: right;
-    transition: transform 0.3s var(--ease);
-  }
-  .nav-links a:hover { color: var(--text); }
-  .nav-links a:hover::after { transform: scaleX(1); transform-origin: left; }
-
-  .nav-start { display: flex; align-items: center; gap: 1.6rem; }
-
-  .nav-logo {
-    display: inline-flex; align-items: center;
-    text-decoration: none; color: var(--text);
-    flex-shrink: 0;
-  }
-  .nav-logo img { width: 46px; height: 46px; object-fit: contain; flex-shrink: 0; }
-
-  .nav-actions { display: flex; align-items: center; gap: 0.9rem; }
-
-  .lang-toggle {
-    display: flex; align-items: center; border: 1px solid var(--border);
-    border-radius: 999px; padding: 3px; flex-shrink: 0;
-  }
-  .lang-toggle button {
-    border: none; background: none; padding: 0.35rem 0.6rem;
-    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.04em;
-    color: var(--text-secondary); border-radius: 999px;
-    transition: background 0.25s var(--ease), color 0.25s var(--ease);
-  }
-  .lang-toggle button.is-active { background: var(--primary-dark); color: #fff; }
-
-  .nav-cta {
-    display: inline-flex; align-items: center;
-    background: var(--primary-dark); color: #fff;
-    border: none; border-radius: 999px;
-    padding: 0.7rem 1.3rem; font-size: 0.8rem; font-weight: 500;
-    text-decoration: none; white-space: nowrap;
-    transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease), background 0.3s var(--ease);
-  }
-  .nav-cta:hover { background: var(--text); box-shadow: var(--shadow-soft); transform: translateY(-2px); }
-
-  .btn-urgent {
-    display: inline-flex; align-items: center; gap: 0.4rem;
-    background: none; border: none; color: var(--urgent-dark);
-    padding: 0; font-family: 'Fraunces', serif;
-    font-size: 1rem; font-weight: 500; white-space: nowrap;
-    transition: opacity 0.25s var(--ease);
-  }
-  .btn-urgent:hover { opacity: 0.7; }
-  .btn-urgent svg { width: 16px; height: 16px; flex-shrink: 0; }
-
-  .nav-toggle {
-    display: flex; align-items: center; justify-content: center;
-    background: none; border: none; width: 40px; height: 40px;
-    position: relative; color: var(--text); flex-shrink: 0;
-  }
-  .nav-toggle svg {
-    width: 22px; height: 22px; position: absolute; top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    transition: opacity 0.3s var(--ease), transform 0.3s var(--ease);
-  }
-  .nav-toggle .icon-close { opacity: 0; transform: translate(-50%, -50%) rotate(-40deg); }
-  .nav-toggle.is-open .icon-menu { opacity: 0; transform: translate(-50%, -50%) rotate(40deg); }
-  .nav-toggle.is-open .icon-close { opacity: 1; transform: translate(-50%, -50%) rotate(0); }
-
-  /* MOBILE MENU */
-  .mobile-menu {
-    position: fixed; inset: 0; z-index: 260;
-    background: var(--bg);
-    overflow-y: auto;
-    opacity: 0; visibility: hidden; transform: translateY(-12px);
-    transition: opacity 0.4s var(--ease), transform 0.4s var(--ease), visibility 0.4s var(--ease);
-  }
-  .mobile-menu.is-open { opacity: 1; visibility: visible; transform: translateY(0); }
-  .mobile-menu-bg {
-    position: absolute; right: -12%; bottom: -8%; width: 70%; max-width: 420px;
-    opacity: 0.07; pointer-events: none;
-  }
-  .mobile-menu-inner {
-    position: relative; z-index: 1; min-height: 100%;
-    display: flex; flex-direction: column; justify-content: center;
-    max-width: 420px; margin: 0 auto; padding: 6.5rem 2rem 3rem;
-  }
-  .mobile-menu-links { display: flex; flex-direction: column; }
-  .mobile-menu-links a {
-    font-family: 'Fraunces', serif;
-    font-size: 1.15rem; text-decoration: none; color: var(--text);
-    padding: 0.95rem 0; border-bottom: 1px solid var(--border);
-  }
-  .mobile-menu-actions {
-    display: flex; align-items: center; justify-content: flex-start;
-    flex-wrap: wrap; gap: 1.5rem; margin-top: 2rem;
-  }
-  .mobile-menu-actions .nav-cta {
-    background: none; color: var(--primary-dark); padding: 0;
-    font-family: 'Fraunces', serif; font-size: 1.02rem; font-weight: 500;
-    box-shadow: none;
-  }
-  .mobile-menu-actions .nav-cta:hover { background: none; box-shadow: none; transform: none; opacity: 0.7; }
-  .mobile-menu .lang-toggle { border: none; padding: 0; gap: 0.35rem; }
-  .mobile-menu .lang-toggle button { padding: 0.2rem 0.3rem; font-size: 0.85rem; color: var(--text-secondary); background: none; }
-  .mobile-menu .lang-toggle button.is-active {
-    background: none; color: var(--primary-dark);
-    text-decoration: underline; text-underline-offset: 3px;
-  }
-  .lang-toggle-sep { color: var(--border); font-size: 0.85rem; }
-
-  /* HERO */
-  .hero {
-    position: relative;
-    min-height: 100svh;
-    display: flex; align-items: center;
-    padding: 8rem 1.75rem 5rem;
-    overflow: hidden;
-  }
-  .hero-grid {
-    max-width: 1160px; margin: 0 auto;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
-    align-items: center; width: 100%;
-  }
-  .hero-eyebrow {
-    display: inline-flex; align-items: center; gap: 0.6rem;
-    font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase;
-    color: var(--text-secondary); margin-bottom: 1.5rem;
-  }
-  .hero-eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--primary); }
-  .hero h1 {
-    font-size: clamp(2.4rem, 5vw, 3.6rem);
-    color: var(--text); margin-bottom: 1.25rem;
-  }
-  .hero p {
-    font-size: 1.12rem; font-weight: 500; color: var(--text);
-    max-width: 34ch; margin-bottom: 2.25rem;
-  }
-  .btn-primary {
-    display: inline-flex; align-items: center; gap: 0.6rem;
-    background: var(--primary-dark); color: #fff;
-    border: none; border-radius: 999px;
-    padding: 1rem 1.9rem; font-size: 0.95rem; font-weight: 500;
-    text-decoration: none;
-    box-shadow: var(--shadow-soft);
-    transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), background 0.35s var(--ease);
-  }
-  .btn-primary:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); background: var(--text); }
-  .btn-primary svg { transition: transform 0.35s var(--ease); }
-  .btn-primary:hover svg { transform: translateX(3px); }
-
-  .hero-visual {
-    position: relative; width: 100%; aspect-ratio: 1107 / 753;
-    border-radius: var(--radius-lg); overflow: hidden;
-    box-shadow: var(--shadow-hover);
-  }
-  .hero-visual img {
-    position: absolute; inset: -2%; width: 104%; height: 104%;
-    object-fit: cover;
-  }
-  .parallax-layer { transition: transform 0.2s var(--ease); will-change: transform; }
-
-  /* SECTION SCAFFOLDING */
-  section { padding: 6.5rem 0; }
-  .section-head { max-width: 640px; margin: 0 auto 3.5rem; text-align: center; }
-  .section-eyebrow {
-    display: block; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase;
-    color: var(--primary-dark); font-weight: 500; margin-bottom: 0.9rem;
-  }
-  .section-head h2 { font-size: clamp(1.7rem, 3.4vw, 2.3rem); margin-bottom: 0.9rem; }
-  .section-head p { color: var(--text-secondary); font-size: 1.02rem; }
-
-  .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
-  .reveal.is-visible { opacity: 1; transform: translateY(0); }
-
-  /* WHO WE ARE */
-  .about-grid {
-    max-width: 640px; margin: 0 auto; text-align: center;
-  }
-  .about-text h2 {
-    font-size: clamp(2rem, 4vw, 2.9rem); margin-bottom: 1.2rem;
-  }
-  .about-text p { color: var(--text-secondary); font-size: 1.08rem; max-width: 46ch; margin: 0 auto 1.5rem; }
-  .about-tags {
-    display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.6rem;
-    font-size: 0.86rem; letter-spacing: 0.04em; color: var(--text);
-  }
-  .about-tag-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--primary); flex-shrink: 0; }
-
-  /* OUR STORY */
-  .story-section, .family-section { background: var(--card); }
-  .story-grid {
-    max-width: 640px; margin: 0 auto; text-align: center;
-  }
-  .story-eyebrow {
-    display: block; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase;
-    color: var(--primary-dark); font-weight: 500; margin-bottom: 0.9rem;
-  }
-  .story-text h2 { font-size: clamp(1.8rem, 3.6vw, 2.6rem); margin-bottom: 1.4rem; }
-  .story-text p { color: var(--text-secondary); font-size: 1.04rem; max-width: 46ch; margin: 0 auto 1.1rem; }
-
-  .story-badge {
-    display: flex; gap: 1rem; align-items: flex-start; text-align: left;
-    border-left: 3px solid var(--primary); padding: 0.2rem 0 0.2rem 1.25rem;
-    margin: 1.5rem auto 0; max-width: 44ch;
-  }
-  .story-badge svg { width: 22px; height: 22px; flex-shrink: 0; margin-top: 0.2rem; }
-  .story-badge strong { display: block; font-family: 'Fraunces', serif; font-weight: 500; font-size: 1.02rem; margin-bottom: 0.3rem; }
-  .story-badge p { color: var(--text-secondary); font-size: 0.92rem; margin: 0; }
-
-  /* TREATMENT PROGRAM */
-  .program-alt { background: var(--card); }
-  .program-list { max-width: 760px; margin: 0 auto; }
-  .program-item {
-    padding: 1.85rem 0; border-bottom: 1px solid var(--border);
-    display: grid; grid-template-columns: 8rem 1fr; gap: 1.5rem;
-  }
-  .program-item:first-child { padding-top: 0; }
-  .program-item:last-child { border-bottom: none; }
-  .program-num {
-    font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase;
-    color: var(--primary-dark); font-weight: 500;
-  }
-  .program-item h3 { font-size: 1.12rem; margin-bottom: 0.5rem; }
-  .program-item p { color: var(--text-secondary); font-size: 0.96rem; max-width: 56ch; }
-
-  /* LIFE AT SUSPIROS */
-  .life-grid {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-auto-rows: 160px;
-    gap: 1rem;
-  }
-  .life-tile {
-    border-radius: var(--radius-lg);
-    background: var(--card);
-    border: 1px solid var(--border);
-    position: relative; overflow: hidden;
-    display: flex; align-items: center; justify-content: center;
-    transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease);
-  }
-  .life-tile:hover { transform: translateY(-4px) scale(1.015); box-shadow: var(--shadow-hover); }
-  .life-tile svg { width: 46%; height: 46%; }
-  .life-tile.tone-a { background: rgba(169, 184, 141, 0.16); }
-  .life-tile.tone-b { background: var(--card); }
-  .life-caption {
-    position: absolute; left: 1rem; bottom: 0.85rem;
-    font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--text-secondary);
-  }
-  .life-tile--wide { grid-column: span 2; }
-  .life-tile--tall { grid-row: span 2; }
-
-  /* FAQ */
-  .faq-list { max-width: 760px; margin: 0 auto; }
-  .faq-item {
-    border-bottom: 1px solid var(--border);
-  }
-  .faq-question {
-    width: 100%; display: flex; align-items: center; justify-content: space-between;
-    gap: 1rem; background: none; border: none;
-    padding: 1.5rem 0.25rem; text-align: left;
-    font-family: 'Fraunces', serif; font-size: 1.08rem; color: var(--text);
-  }
-  .faq-plus {
-    flex-shrink: 0; width: 26px; height: 26px; position: relative;
-  }
-  .faq-plus::before, .faq-plus::after {
-    content: ''; position: absolute; top: 50%; left: 50%;
-    background: var(--primary-dark);
-    transform: translate(-50%, -50%);
-    transition: transform 0.35s var(--ease);
-  }
-  .faq-plus::before { width: 14px; height: 1.5px; }
-  .faq-plus::after { width: 1.5px; height: 14px; }
-  .faq-item.is-open .faq-plus::after { transform: translate(-50%, -50%) rotate(90deg); opacity: 0; }
-  .faq-answer {
-    max-height: 0; overflow: hidden;
-    transition: max-height 0.4s var(--ease);
-  }
-  .faq-answer p { color: var(--text-secondary); padding: 0 0.25rem 1.5rem; font-size: 0.95rem; max-width: 60ch; }
-
-  /* CONTACT */
-  .contact-alt { background: var(--card); }
-  .contact-grid {
-    display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 3.5rem;
-    align-items: start;
-  }
-  .contact-info-item {
-    display: flex; gap: 1rem; align-items: flex-start;
-    padding: 1.4rem 0; border-bottom: 1px solid var(--border);
-  }
-  .contact-info-item:first-child { padding-top: 0; }
-  .contact-icon {
-    width: 40px; height: 40px; border-radius: 50%;
-    background: rgba(169, 184, 141, 0.18);
-    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-  }
-  .contact-icon svg { width: 18px; height: 18px; }
-  .contact-info-item h4 { font-size: 0.9rem; color: var(--text-secondary); font-weight: 500; margin-bottom: 0.25rem; }
-  .contact-info-item p, .contact-info-item a { font-size: 1rem; text-decoration: none; }
-
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-  .field { margin-bottom: 1.1rem; }
-  .field label {
-    display: block; font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 0.5rem;
-  }
-  .field input, .field textarea {
-    width: 100%; border: 1px solid var(--border); border-radius: var(--radius-sm);
-    padding: 0.85rem 1rem; font-family: inherit; font-size: 0.95rem; color: var(--text);
-    background: var(--bg);
-    transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
-  }
-  .field input:focus, .field textarea:focus {
-    outline: none; border-color: var(--primary-dark);
-    box-shadow: 0 0 0 3px rgba(111, 127, 88, 0.15);
-  }
-  .field textarea { resize: vertical; min-height: 110px; }
-  .form-note { font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.75rem; }
-  .hp-field { position: absolute; left: -9999px; }
-  .form-error {
-    display: none; font-size: 0.85rem; color: var(--urgent-dark);
-    margin-top: 0.9rem;
-  }
-  .form-error.is-visible { display: block; }
-  .form-success {
-    display: none; text-align: center; padding: 2.5rem 1rem;
-    background: rgba(169, 184, 141, 0.14); border-radius: var(--radius-lg);
-  }
-  .form-success.is-visible { display: block; }
-  .form-success h3 { margin-bottom: 0.5rem; }
-  .form-success p { color: var(--text-secondary); }
-
-  /* FOOTER */
-  footer {
-    border-top: 1px solid var(--border);
-    padding: 3rem 0 2.25rem;
-  }
-  .footer-inner {
-    display: flex; align-items: center; justify-content: space-between;
-    flex-wrap: wrap; gap: 1.5rem;
-  }
-  .footer-mark { font-family: 'Fraunces', serif; letter-spacing: 0.2em; font-size: 1rem; }
-  .footer-tag { color: var(--text-secondary); font-size: 0.82rem; margin-top: 0.35rem; }
-  .footer-links { display: flex; flex-wrap: wrap; gap: 0.6rem 1.75rem; list-style: none; }
-  .footer-links a { text-decoration: none; color: var(--text-secondary); font-size: 0.85rem; transition: color 0.25s var(--ease); }
-  .footer-links a:hover { color: var(--text); }
-  .footer-bottom {
-    margin-top: 2.25rem; padding-top: 1.5rem; border-top: 1px solid var(--border);
-    color: var(--text-secondary); font-size: 0.78rem; text-align: center;
-  }
-
-  /* FLOATING CTA */
-  .floating-cta {
-    position: fixed; bottom: 1.75rem; right: 1.75rem; z-index: 150;
-    opacity: 0; visibility: hidden; transform: translateY(16px);
-    transition: opacity 0.4s var(--ease), transform 0.4s var(--ease), visibility 0.4s var(--ease);
-  }
-  .floating-cta.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
-  .floating-cta a {
-    display: inline-flex; align-items: center; gap: 0.55rem;
-    background: var(--text); color: #fff; text-decoration: none;
-    border-radius: 999px; padding: 0.9rem 1.5rem; font-size: 0.85rem; font-weight: 500;
-    box-shadow: var(--shadow-hover);
-    transition: transform 0.3s var(--ease), background 0.3s var(--ease);
-  }
-  .floating-cta a:hover { background: var(--primary-dark); transform: translateY(-2px); }
-
-  /* COOKIE NOTICE */
-  .cookie-banner {
-    position: fixed; left: 1.5rem; right: 1.5rem; bottom: 1.5rem; z-index: 250;
-    max-width: 640px; margin: 0 auto;
-    background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-hover);
-    padding: 1.25rem 1.5rem;
-    display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem;
-    opacity: 0; visibility: hidden; transform: translateY(16px);
-    transition: opacity 0.4s var(--ease), transform 0.4s var(--ease), visibility 0.4s var(--ease);
-  }
-  .cookie-banner.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
-  .cookie-banner p { flex: 1 1 320px; font-size: 0.86rem; color: var(--text-secondary); margin: 0; }
-  .cookie-banner .btn-primary { padding: 0.7rem 1.4rem; font-size: 0.85rem; flex-shrink: 0; }
-
-  /* EMERGENCY MODAL */
-  .emergency-overlay {
-    position: fixed; inset: 0; z-index: 400;
-    display: flex; align-items: center; justify-content: center;
-    padding: 1.5rem;
-    opacity: 0; visibility: hidden;
-    transition: opacity 0.35s var(--ease), visibility 0.35s var(--ease);
-  }
-  .emergency-overlay.is-open { opacity: 1; visibility: visible; }
-  .emergency-backdrop {
-    position: absolute; inset: 0; background: rgba(47, 51, 45, 0.55);
-    backdrop-filter: blur(3px);
-  }
-  .emergency-card {
-    position: relative; background: var(--card);
-    border-radius: var(--radius-lg); max-width: 460px; width: 100%;
-    padding: 2.25rem 2rem 2rem;
-    box-shadow: var(--shadow-hover);
-    transform: translateY(16px) scale(0.98); opacity: 0;
-    transition: transform 0.4s var(--ease), opacity 0.4s var(--ease);
-  }
-  .emergency-overlay.is-open .emergency-card { transform: translateY(0) scale(1); opacity: 1; }
-  .emergency-card h3 { font-size: 1.3rem; margin-bottom: 0.6rem; padding-right: 1.5rem; }
-  .emergency-intro { color: var(--text-secondary); font-size: 0.92rem; margin-bottom: 1.5rem; }
-  .emergency-close {
-    position: absolute; top: 1.4rem; right: 1.4rem;
-    width: 30px; height: 30px; border: none; background: none;
-    color: var(--text-secondary); font-size: 1.4rem; line-height: 1;
-    display: flex; align-items: center; justify-content: center; border-radius: 50%;
-    transition: background 0.25s var(--ease), color 0.25s var(--ease);
-  }
-  .emergency-close:hover { background: var(--bg); color: var(--text); }
-  .emergency-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
-  .emergency-list a {
-    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
-    text-decoration: none; padding: 0.85rem 1rem;
-    background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-sm);
-    transition: border-color 0.25s var(--ease), background 0.25s var(--ease);
-  }
-  .emergency-list a:hover { border-color: var(--urgent); background: rgba(181, 69, 58, 0.06); }
-  .emergency-list a span { font-size: 0.86rem; color: var(--text); }
-  .emergency-list a strong { font-family: 'Fraunces', serif; font-size: 1rem; color: var(--urgent-dark); white-space: nowrap; }
-  .emergency-footnote { font-size: 0.78rem; color: var(--text-secondary); margin-top: 1.5rem; }
-
-  /* RESPONSIVE */
-  @media (max-width: 1080px) {
-    .nav-links { gap: 1.1rem; }
-    .nav-links a { font-size: 0.8rem; }
-  }
-
-  @media (max-width: 940px) {
-    .nav-links { display: none; }
-  }
-
-  @media (max-width: 860px) {
-    .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
-    .hero p { margin-left: auto; margin-right: auto; }
-    .hero-visual { order: -1; max-width: 320px; margin: 0 auto; }
-    .program-item { grid-template-columns: 1fr; gap: 0.4rem; }
-    .life-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 140px; }
-    .life-tile--wide { grid-column: span 2; }
-    .contact-grid { grid-template-columns: 1fr; }
-    .form-row { grid-template-columns: 1fr; }
-    .footer-inner { flex-direction: column; align-items: flex-start; }
-    section { padding: 4.5rem 0; }
-    .floating-cta { right: 1rem; bottom: 1rem; left: 1rem; }
-    .floating-cta a { justify-content: center; width: 100%; }
-    .emergency-card { padding: 1.9rem 1.5rem 1.6rem; }
-    .cookie-banner { left: 1rem; right: 1rem; bottom: 1rem; flex-direction: column; align-items: stretch; text-align: center; }
-    .cookie-banner p { flex: none; }
-    .cookie-banner .btn-primary { width: 100%; justify-content: center; }
-    body.cookie-open .floating-cta { bottom: 6.5rem; }
-  }
-
-  @media (max-width: 520px) {
-    nav { padding: 1rem; gap: 0.5rem; }
-    .nav-start { gap: 0.6rem; }
-    .nav-logo img { width: 44px; height: 44px; }
-    .lang-toggle button { padding: 0.22rem 0.36rem; font-size: 0.62rem; }
-    .nav-cta { padding: 0.5rem 0.8rem; font-size: 0.7rem; }
-    .nav-toggle { width: 34px; height: 34px; }
-    .nav-toggle svg { width: 19px; height: 19px; }
-  }
-
-  @media (max-width: 420px) {
-    .btn-urgent { padding: 0.6rem 0.85rem; font-size: 0.74rem; }
-  }
-</style>
+<link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
 
@@ -693,23 +59,23 @@
   <div class="announcement-bar" data-i18n="announcement.text">Apertura a Principios de 2027 — ya puedes hacer tu consulta confidencial.</div>
   <nav aria-label="Primary">
     <div class="nav-start">
-      <a href="#" class="nav-logo"><img src="images/logo.png" alt="Suspiros" width="68" height="68" loading="eager"></a>
+      <a href="home.html" class="nav-logo"><img src="images/logo.png" alt="Suspiros" width="68" height="68" loading="eager"></a>
       <div class="nav-actions">
         <div class="lang-toggle" id="langToggle">
           <button type="button" data-lang="en">EN</button>
           <button type="button" data-lang="es">ES</button>
         </div>
-        <a href="#contact" class="nav-cta" data-i18n="nav.book">Reservar Valoración</a>
+        <a href="contact.html" class="nav-cta" data-i18n="nav.book">Reservar Valoración</a>
       </div>
     </div>
     <ul class="nav-links">
-      <li><a href="#about" data-i18n="nav.about">Quiénes Somos</a></li>
-      <li><a href="#story" data-i18n="nav.story">Nuestra Historia</a></li>
-      <li><a href="#program" data-i18n="nav.program">Tratamiento</a></li>
-      <li><a href="#life" data-i18n="nav.life">La Vida en Suspiros</a></li>
-      <li><a href="#family" data-i18n="nav.family">Familias</a></li>
-      <li><a href="#faq" data-i18n="nav.faq">Preguntas</a></li>
-      <li><a href="#contact" data-i18n="nav.contact">Contacto</a></li>
+      <li><a href="about.html" data-i18n="nav.about">Quiénes Somos</a></li>
+      <li><a href="programme.html" data-i18n="nav.program">Programa</a></li>
+      <li><a href="team.html" data-i18n="nav.team">Equipo</a></li>
+      <li><a href="life.html" data-i18n="nav.life">La Vida en Suspiros</a></li>
+      <li><a href="family.html" data-i18n="nav.family">Familias</a></li>
+      <li><a href="faq.html" data-i18n="nav.faq">Preguntas</a></li>
+      <li><a href="contact.html" data-i18n="nav.contact">Contacto</a></li>
     </ul>
     <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" data-i18n-aria="aria.menu" aria-expanded="false" aria-controls="mobileMenu">
       <svg class="icon-menu" viewBox="0 0 24 24" fill="none"><line x1="4" y1="7" x2="20" y2="7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><line x1="4" y1="12" x2="20" y2="12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><line x1="4" y1="17" x2="20" y2="17" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
@@ -726,16 +92,16 @@
   </svg>
   <div class="mobile-menu-inner">
     <div class="mobile-menu-links" role="navigation" aria-label="Menu">
-      <a href="#about" data-i18n="nav.about">Quiénes Somos</a>
-      <a href="#story" data-i18n="nav.story">Nuestra Historia</a>
-      <a href="#program" data-i18n="nav.program">Tratamiento</a>
-      <a href="#life" data-i18n="nav.life">La Vida en Suspiros</a>
-      <a href="#family" data-i18n="nav.family">Familias</a>
-      <a href="#faq" data-i18n="nav.faq">Preguntas</a>
-      <a href="#contact" data-i18n="nav.contact">Contacto</a>
+      <a href="about.html" data-i18n="nav.about">Quiénes Somos</a>
+      <a href="programme.html" data-i18n="nav.program">Programa</a>
+      <a href="team.html" data-i18n="nav.team">Equipo</a>
+      <a href="life.html" data-i18n="nav.life">La Vida en Suspiros</a>
+      <a href="family.html" data-i18n="nav.family">Familias</a>
+      <a href="faq.html" data-i18n="nav.faq">Preguntas</a>
+      <a href="contact.html" data-i18n="nav.contact">Contacto</a>
     </div>
     <div class="mobile-menu-actions">
-      <a href="#contact" class="nav-cta" data-i18n="nav.book">Reservar Valoración</a>
+      <a href="contact.html" class="nav-cta" data-i18n="nav.book">Reservar Valoración</a>
       <button type="button" class="btn-urgent" id="emergencyOpen" aria-haspopup="dialog" aria-controls="emergencyOverlay">
         <svg viewBox="0 0 24 24" fill="none"><path d="M12 9v4.5M12 16.2v.1M10.3 4.3L2.9 17.2c-.6 1 .1 2.3 1.3 2.3h15.6c1.2 0 1.9-1.3 1.3-2.3L13.7 4.3c-.6-1-2-1-2.6 0z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         <span data-i18n="nav.emergency">Ayuda Urgente</span>
@@ -756,10 +122,10 @@
     <div class="hero-grid">
       <div>
         <span class="hero-eyebrow"><span class="hero-eyebrow-dot"></span>Palma de Mallorca</span>
-        <h1 data-i18n="hero.title" data-i18n-html="true">La recuperación empieza con <em>una decisión</em>.</h1>
-        <p data-i18n="hero.sub">Un centro privado de rehabilitación para adicciones a drogas y alcohol, en Mallorca.</p>
-        <a href="#contact" class="btn-primary">
-          <span data-i18n="hero.cta">Reserva una Valoración Confidencial</span>
+        <h1 data-i18n="home.hero.title" data-i18n-html="true">La recuperación empieza con <em>una decisión</em>.</h1>
+        <p data-i18n="home.hero.sub">Un centro privado de rehabilitación para adicciones a drogas y alcohol, en Mallorca.</p>
+        <a href="contact.html" class="btn-primary">
+          <span data-i18n="home.hero.cta">Reserva una Valoración Confidencial</span>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>
@@ -769,250 +135,106 @@
     </div>
   </section>
 
-  <!-- WHO WE ARE -->
-  <section id="about">
+  <!-- ABOUT TEASER -->
+  <section>
     <div class="container">
-      <div class="about-grid">
-        <div class="about-text reveal">
-          <span class="section-eyebrow" data-i18n="about.eyebrow">Quiénes Somos</span>
-          <h2 data-i18n="about.title" data-i18n-html="true">Un centro privado para la <em>recuperación</em> de adicciones.</h2>
-          <p data-i18n="about.lead">Tratamos la adicción a drogas y alcohol con cuidado basado en la evidencia, en un entorno residencial estructurado y profundamente humano, en Mallorca.</p>
-          <p data-i18n="about.p2">Cada residente recibe una valoración individual y un plan de tratamiento personalizado. Nuestro equipo clínico está presente las 24 horas, junto a un key worker dedicado que te acompaña desde el primer día hasta el último.</p>
-          <p data-i18n="about.p3">Creemos que la recuperación no es solo clínica. Junto al cuidado médico, cultivamos la conexión, la rutina y el autoconocimiento — la base de una vida que perdura más allá del tratamiento.</p>
-          <div class="about-tags">
-            <span data-i18n="about.tag1">Cuidado Residencial</span><span class="about-tag-dot"></span>
-            <span data-i18n="about.tag2">Tratamiento Basado en la Evidencia</span><span class="about-tag-dot"></span>
-            <span data-i18n="about.tag3">Apoyo las 24 Horas</span>
-          </div>
-        </div>
+      <div class="teaser reveal">
+        <span class="section-eyebrow" data-i18n="home.about.eyebrow">Quiénes Somos</span>
+        <h2 data-i18n="home.about.title" data-i18n-html="true">Un centro privado para la <em>recuperación</em> de adicciones.</h2>
+        <p data-i18n="home.about.lead">Tratamos la adicción a drogas y alcohol con cuidado basado en la evidencia, en un entorno residencial estructurado y profundamente humano, en Mallorca. Cada plan es personal, cada paso tiene supervisión médica, y cada estancia es totalmente confidencial.</p>
+        <a href="about.html" class="teaser-link">
+          <span data-i18n="home.about.link">Más sobre nuestro enfoque</span>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="#6F7F58" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- OUR STORY -->
-  <section id="story" class="story-section">
+  <!-- PROGRAMME TEASER -->
+  <section class="bg-alt">
     <div class="container">
-      <div class="story-grid">
-        <div class="story-text reveal">
-          <span class="story-eyebrow" data-i18n="story.eyebrow">Nuestra Historia</span>
-          <h2 data-i18n="story.title">Construido sobre los doce pasos.</h2>
-          <p data-i18n="story.p1">Suspiros nace de una idea simple: la recuperación perdura cuando es personal, estructurada y nunca se camina en soledad.</p>
-          <p data-i18n="story.p2">Nuestro programa está basado en la tradición de los 12 pasos, combinada con atención médica, terapia y una rutina diaria estable.</p>
-          <p data-i18n="story.p3">Desarrollado en la década de 1930, el modelo de los 12 Pasos sigue siendo uno de los marcos de recuperación más respetados y utilizados del mundo. No está vinculado a ninguna religión y da la bienvenida a personas de todas las creencias y orígenes. En Suspiros lo ofrecemos como parte de un itinerario más amplio y personalizado, junto con tratamiento basado en la evidencia y un acompañamiento terapéutico cercano.</p>
-          <div class="story-badge">
-            <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#6F7F58" stroke-width="1.4"/><path d="M9 12.5l2 2 4-4.5" stroke="#6F7F58" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <div>
-              <strong data-i18n="story.badgeTitle">Fundamento en los 12 Pasos</strong>
-              <p data-i18n="story.badgeText">Un marco reconocido internacionalmente para una recuperación duradera, combinado con cuidado clínico y holístico.</p>
-            </div>
-          </div>
-        </div>
+      <div class="teaser reveal">
+        <span class="section-eyebrow" data-i18n="home.program.eyebrow">Programa de Tratamiento</span>
+        <h2 data-i18n="home.program.title">Cuidado para la persona completa.</h2>
+        <p data-i18n="home.program.lead">Desintoxicación con supervisión médica, acompañamiento individual, terapia de grupo diaria y prácticas holísticas — integradas en un programa estructurado, construido en torno a ti, desde tu primera consulta hasta tu plan de continuidad.</p>
+        <a href="programme.html" class="teaser-link">
+          <span data-i18n="home.program.link">Cómo funciona el tratamiento</span>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="#6F7F58" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- TREATMENT PROGRAM -->
-  <section id="program" class="program-alt">
+  <!-- TEAM TEASER -->
+  <section>
     <div class="container">
-      <div class="section-head reveal">
-        <span class="section-eyebrow" data-i18n="program.eyebrow">Programa de Tratamiento</span>
-        <h2 data-i18n="program.title">Cuidado para la persona completa.</h2>
-        <p data-i18n="program.sub">Atención médica, terapia y una rutina diaria, construida en torno a tu recuperación.</p>
-      </div>
-      <div class="program-list">
-        <div class="program-item reveal">
-          <span class="program-num">01</span>
-          <div>
-            <h3 data-i18n="program.card1Title">Desintoxicación Médica</h3>
-            <p data-i18n="program.card1Text">Un médico supervisa tu estabilización física, con seguridad y las 24 horas.</p>
-          </div>
-        </div>
-        <div class="program-item reveal">
-          <span class="program-num">02</span>
-          <div>
-            <h3 data-i18n="program.card2Title">Sesiones Individuales</h3>
-            <p data-i18n="program.card2Text">Un key worker se reúne contigo cada semana para construir tu plan personal.</p>
-          </div>
-        </div>
-        <div class="program-item reveal">
-          <span class="program-num">03</span>
-          <div>
-            <h3 data-i18n="program.card3Title">Terapia de Grupo y Talleres</h3>
-            <p data-i18n="program.card3Text">Grupos diarios y talleres sobre prevención de recaídas, cambio y bienestar emocional.</p>
-          </div>
-        </div>
-        <div class="program-item reveal">
-          <span class="program-num">04</span>
-          <div>
-            <h3 data-i18n="program.card4Title">Prácticas Holísticas</h3>
-            <p data-i18n="program.card4Text">Yoga, meditación y mindfulness, integrados en tu rutina diaria.</p>
-          </div>
-        </div>
+      <div class="teaser reveal">
+        <span class="section-eyebrow" data-i18n="home.team.eyebrow">Nuestro Equipo</span>
+        <h2 data-i18n="home.team.title">Un equipo dedicado, las 24 horas.</h2>
+        <p data-i18n="home.team.lead">Un equipo multidisciplinar de médicos, terapeutas y key workers acompaña a cada residente, día y noche, durante toda su estancia.</p>
+        <a href="team.html" class="teaser-link">
+          <span data-i18n="home.team.link">Conoce al equipo que te cuidará</span>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="#6F7F58" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- LIFE AT SUSPIROS -->
-  <section id="life">
+  <!-- LIFE TEASER -->
+  <section class="bg-alt">
     <div class="container">
-      <div class="section-head reveal">
-        <span class="section-eyebrow" data-i18n="life.eyebrow">La Vida en Suspiros</span>
-        <h2 data-i18n="life.title">Un lugar tranquilo para sanar.</h2>
-      </div>
-      <div class="life-grid">
-        <div class="life-tile life-tile--wide life-tile--tall tone-a reveal">
-          <svg viewBox="0 0 100 100" fill="none"><path d="M35 84c14-24 20-40 20-58" stroke="#6F7F58" stroke-width="1.6" stroke-linecap="round"/><ellipse cx="42.5" cy="53" rx="6" ry="12" transform="rotate(-30 42.5 53)" stroke="#6F7F58" stroke-width="1.4"/><ellipse cx="50.5" cy="36" rx="5.5" ry="11" transform="rotate(-20 50.5 36)" stroke="#6F7F58" stroke-width="1.4"/><circle cx="33" cy="70" r="3.5" fill="#6F7F58"/><circle cx="38.5" cy="61.5" r="3.5" fill="#6F7F58"/></svg>
-          <span class="life-caption" data-i18n="life.grove">Huerto de Naranjos</span>
-        </div>
-        <div class="life-tile tone-b reveal">
-          <svg viewBox="0 0 100 100" fill="none"><path d="M32 78V46a18 18 0 0136 0v32" stroke="#6F7F58" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><line x1="22" y1="78" x2="78" y2="78" stroke="#6F7F58" stroke-width="1.6" stroke-linecap="round"/></svg>
-          <span class="life-caption" data-i18n="life.terrace">Terraza</span>
-        </div>
-        <div class="life-tile tone-b reveal">
-          <svg viewBox="0 0 100 100" fill="none"><circle cx="50" cy="55" r="8" stroke="#6F7F58" stroke-width="1.6"/><circle cx="50" cy="55" r="18" stroke="#A9B88D" stroke-width="1.4"/><circle cx="50" cy="55" r="28" stroke="#D8DED2" stroke-width="1.4"/></svg>
-          <span class="life-caption" data-i18n="life.pool">Piscina</span>
-        </div>
-        <div class="life-tile tone-a reveal">
-          <svg viewBox="0 0 100 100" fill="none"><circle cx="50" cy="34" r="9" stroke="#6F7F58" stroke-width="1.6"/><path d="M18 60c8-6 16-6 24 0s16 6 24 0 16-6 24 0" stroke="#6F7F58" stroke-width="1.6" stroke-linecap="round"/><path d="M18 72c8-6 16-6 24 0s16 6 24 0 16-6 24 0" stroke="#A9B88D" stroke-width="1.6" stroke-linecap="round"/></svg>
-          <span class="life-caption" data-i18n="life.coast">Costa</span>
-        </div>
-        <div class="life-tile tone-b reveal">
-          <svg viewBox="0 0 100 100" fill="none"><rect x="28" y="22" width="44" height="56" rx="3" stroke="#6F7F58" stroke-width="1.6"/><line x1="28" y1="33.5" x2="72" y2="33.5" stroke="#6F7F58" stroke-width="1.3"/><line x1="28" y1="44.5" x2="72" y2="44.5" stroke="#6F7F58" stroke-width="1.3"/><line x1="28" y1="55.5" x2="72" y2="55.5" stroke="#6F7F58" stroke-width="1.3"/><line x1="28" y1="66.5" x2="72" y2="66.5" stroke="#6F7F58" stroke-width="1.3"/></svg>
-          <span class="life-caption" data-i18n="life.quiet">Sala de Calma</span>
-        </div>
-        <div class="life-tile life-tile--wide tone-a reveal">
-          <svg viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="4" fill="#6F7F58"/><circle cx="50" cy="26" r="3" fill="#A9B88D"/><circle cx="70" cy="38" r="3" fill="#A9B88D"/><circle cx="70" cy="62" r="3" fill="#A9B88D"/><circle cx="50" cy="74" r="3" fill="#A9B88D"/><circle cx="30" cy="62" r="3" fill="#A9B88D"/><circle cx="30" cy="38" r="3" fill="#A9B88D"/></svg>
-          <span class="life-caption" data-i18n="life.group">Sala de Grupo</span>
-        </div>
+      <div class="teaser reveal">
+        <span class="section-eyebrow" data-i18n="home.life.eyebrow">La Vida en Suspiros</span>
+        <h2 data-i18n="home.life.title">Un lugar tranquilo para sanar.</h2>
+        <p data-i18n="home.life.lead">Huertos de naranjos, piscina y terraza privadas, salas de calma para la reflexión y espacios compartidos para conectar — un entorno residencial pensado tanto para el descanso como para la recuperación.</p>
+        <a href="life.html" class="teaser-link">
+          <span data-i18n="home.life.link">Descubre el entorno</span>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="#6F7F58" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- FOR FAMILIES -->
-  <section id="family" class="family-section">
+  <!-- FAMILY TEASER -->
+  <section>
     <div class="container">
-      <div class="about-grid">
-        <div class="about-text reveal">
-          <span class="section-eyebrow" data-i18n="family.eyebrow">Para Familias</span>
-          <h2 data-i18n="family.title">Apoyo para quienes los quieren.</h2>
-          <p data-i18n="family.lead">La adicción afecta a toda la familia. Os mantenemos informados, damos la bienvenida a las visitas cuando vuestro ser querido se ha asentado, y facilitamos llamadas y videollamadas regulares durante su estancia.</p>
-          <div class="about-tags">
-            <span data-i18n="family.tag1">Actualizaciones Regulares</span><span class="about-tag-dot"></span>
-            <span data-i18n="family.tag2">Visitas Bienvenidas</span><span class="about-tag-dot"></span>
-            <span data-i18n="family.tag3">Contacto Directo con el Equipo</span>
-          </div>
-        </div>
+      <div class="teaser reveal">
+        <span class="section-eyebrow" data-i18n="home.family.eyebrow">Para Familias</span>
+        <h2 data-i18n="home.family.title">Apoyo para quienes los quieren.</h2>
+        <p data-i18n="home.family.lead">La adicción afecta a toda la familia. Os mantenemos informados, damos la bienvenida a las visitas cuando vuestro ser querido se ha asentado, y facilitamos el contacto regular durante su estancia.</p>
+        <a href="family.html" class="teaser-link">
+          <span data-i18n="home.family.link">Cómo apoyamos a las familias</span>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="#6F7F58" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section id="faq">
+  <!-- FAQ TEASER -->
+  <section class="bg-alt">
     <div class="container">
-      <div class="section-head reveal">
-        <span class="section-eyebrow" data-i18n="faq.eyebrow">Preguntas Frecuentes</span>
-        <h2 data-i18n="faq.title">Lo que nos preguntan.</h2>
-      </div>
-      <div class="faq-list reveal">
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            <span data-i18n="faq.q1">¿Es confidencial el programa?</span>
-            <span class="faq-plus"></span>
-          </button>
-          <div class="faq-answer"><p data-i18n="faq.a1">Sí. Cada consulta y cada estancia son totalmente privadas.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            <span data-i18n="faq.q2">¿Cuánto dura el tratamiento?</span>
-            <span class="faq-plus"></span>
-          </button>
-          <div class="faq-answer"><p data-i18n="faq.a2">Los programas suelen durar de 8 a 12 semanas, adaptados a ti.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            <span data-i18n="faq.q3">¿La desintoxicación está supervisada médicamente?</span>
-            <span class="faq-plus"></span>
-          </button>
-          <div class="faq-answer"><p data-i18n="faq.a3">Sí. Un médico supervisa cada paso, día y noche.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            <span data-i18n="faq.q4">¿Puede visitarme mi familia?</span>
-            <span class="faq-plus"></span>
-          </button>
-          <div class="faq-answer"><p data-i18n="faq.a4">Sí, tras un periodo inicial de adaptación, con cita previa.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            <span data-i18n="faq.q5">¿Qué ocurre después de irme?</span>
-            <span class="faq-plus"></span>
-          </button>
-          <div class="faq-answer"><p data-i18n="faq.a5">Construimos tu plan de recuperación juntos, mucho antes de que te vayas.</p></div>
-        </div>
+      <div class="teaser reveal">
+        <span class="section-eyebrow" data-i18n="home.faq.eyebrow">Preguntas Frecuentes</span>
+        <h2 data-i18n="home.faq.title">Lo que nos preguntan.</h2>
+        <p data-i18n="home.faq.lead">Confidencialidad, duración del tratamiento, supervisión médica, visitas familiares — las preguntas que más escuchamos, respondidas con claridad.</p>
+        <a href="faq.html" class="teaser-link">
+          <span data-i18n="home.faq.link">Ver todas las preguntas</span>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="#6F7F58" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="contact-alt">
+  <!-- CTA -->
+  <section class="home-cta">
     <div class="container">
-      <div class="section-head reveal">
-        <span class="section-eyebrow" data-i18n="contact.eyebrow">Contacto</span>
-        <h2 data-i18n="contact.title">Empieza con una conversación.</h2>
-        <p data-i18n="contact.sub">Contacta con total confianza. Respondemos rápido.</p>
-      </div>
-      <div class="contact-grid">
-        <div class="reveal">
-          <div class="contact-info-item">
-            <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.7 21 3 13.3 3 4c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.2 2.2z" stroke="#6F7F58" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
-            <div><h4 data-i18n="contact.phoneLabel">Teléfono</h4><a href="tel:+34000000000">+34 000 000 000</a></div>
-          </div>
-          <div class="contact-info-item">
-            <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#6F7F58" stroke-width="1.5"/><path d="M3 6l9 7 9-7" stroke="#6F7F58" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-            <div><h4 data-i18n="contact.emailLabel">Correo</h4><a href="mailto:info@suspiros.com">info@suspiros.com</a></div>
-          </div>
-          <div class="contact-info-item">
-            <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z" stroke="#6F7F58" stroke-width="1.5" stroke-linejoin="round"/><circle cx="12" cy="9" r="2.4" stroke="#6F7F58" stroke-width="1.5"/></svg></div>
-            <div><h4 data-i18n="contact.locationLabel">Ubicación</h4><p data-i18n="contact.locationValue">Palma de Mallorca, España</p></div>
-          </div>
-        </div>
-
-        <div class="reveal">
-          <form id="enquiryForm" name="admission-enquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
-            <input type="hidden" name="form-name" value="admission-enquiry">
-            <p class="hp-field" aria-hidden="true">
-              <label>Don't fill this out: <input tabindex="-1" autocomplete="off" name="bot-field"></label>
-            </p>
-            <div class="form-row">
-              <div class="field">
-                <label for="name" data-i18n="form.name">Nombre</label>
-                <input type="text" id="name" name="name" autocomplete="name" required>
-              </div>
-              <div class="field">
-                <label for="phone" data-i18n="form.phone">Teléfono</label>
-                <input type="tel" id="phone" name="phone" autocomplete="tel">
-              </div>
-            </div>
-            <div class="field">
-              <label for="email" data-i18n="form.email">Correo electrónico</label>
-              <input type="email" id="email" name="email" autocomplete="email" required>
-            </div>
-            <div class="field">
-              <label for="message" data-i18n="form.message">Mensaje</label>
-              <textarea id="message" name="message" required></textarea>
-            </div>
-            <button type="submit" class="btn-primary">
-              <span data-i18n="form.send">Enviar Consulta</span>
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-            <p class="form-note" data-i18n="form.note">Todas las consultas son confidenciales y las revisa nuestro equipo de admisiones.</p>
-            <p class="form-error" id="formError" data-i18n="form.error">Ha ocurrido un error al enviar tu mensaje. Inténtalo de nuevo, o llámanos o escríbenos directamente.</p>
-          </form>
-          <div class="form-success" id="formSuccess">
-            <h3 data-i18n="form.thanks">Gracias.</h3>
-            <p data-i18n="form.thanksSub">Hemos recibido tu mensaje y te contactaremos en breve.</p>
-          </div>
-        </div>
+      <div class="teaser reveal">
+        <h2 data-i18n="home.cta.title">Empieza con una conversación.</h2>
+        <p data-i18n="home.cta.sub">Contacta con total confianza. Respondemos rápido, y cada consulta se trata con absoluta discreción.</p>
+        <a href="contact.html" class="btn-primary">
+          <span data-i18n="home.cta.button">Contáctanos</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
       </div>
     </div>
   </section>
@@ -1027,13 +249,13 @@
         <div class="footer-tag" data-i18n="footer.tag">Una respiración profunda que expresa alivio, amor o anhelo.</div>
       </div>
       <ul class="footer-links">
-        <li><a href="#about" data-i18n="nav.about">Quiénes Somos</a></li>
-        <li><a href="#story" data-i18n="nav.story">Nuestra Historia</a></li>
-        <li><a href="#program" data-i18n="nav.program">Tratamiento</a></li>
-        <li><a href="#life" data-i18n="nav.life">La Vida en Suspiros</a></li>
-        <li><a href="#family" data-i18n="nav.family">Familias</a></li>
-        <li><a href="#faq" data-i18n="nav.faq">Preguntas</a></li>
-        <li><a href="#contact" data-i18n="nav.contact">Contacto</a></li>
+        <li><a href="about.html" data-i18n="nav.about">Quiénes Somos</a></li>
+        <li><a href="programme.html" data-i18n="nav.program">Programa</a></li>
+        <li><a href="team.html" data-i18n="nav.team">Equipo</a></li>
+        <li><a href="life.html" data-i18n="nav.life">La Vida en Suspiros</a></li>
+        <li><a href="family.html" data-i18n="nav.family">Familias</a></li>
+        <li><a href="faq.html" data-i18n="nav.faq">Preguntas</a></li>
+        <li><a href="contact.html" data-i18n="nav.contact">Contacto</a></li>
       </ul>
     </div>
     <div class="footer-bottom" data-i18n="footer.copy">© 2026 Suspiros Rehabilitation, Palma de Mallorca. Todos los derechos reservados.</div>
@@ -1041,7 +263,7 @@
 </footer>
 
 <div class="floating-cta" id="floatingCta">
-  <a href="#contact" data-i18n="nav.book">Reservar Valoración</a>
+  <a href="contact.html" data-i18n="nav.book">Reservar Valoración</a>
 </div>
 
 <!-- EMERGENCY MODAL -->
@@ -1067,372 +289,8 @@
   <button type="button" class="btn-primary" id="cookieAccept"><span data-i18n="cookie.accept">Entendido</span></button>
 </div>
 
-<script>
-(function () {
-  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  /* Preloader */
-  window.addEventListener('load', function () {
-    var start = Date.now();
-    var minDelay = reduceMotion ? 0 : 500;
-    var wait = Math.max(0, minDelay - (Date.now() - start));
-    setTimeout(function () {
-      document.getElementById('preloader').classList.add('is-hidden');
-    }, wait);
-  });
-
-  /* Cookie notice */
-  var cookieBanner = document.getElementById('cookieBanner');
-  var cookieAccept = document.getElementById('cookieAccept');
-  try {
-    if (!localStorage.getItem('suspiros-cookie-ack')) {
-      setTimeout(function () {
-        cookieBanner.classList.add('is-visible');
-        document.body.classList.add('cookie-open');
-      }, 1200);
-    }
-  } catch (err) {}
-  cookieAccept.addEventListener('click', function () {
-    cookieBanner.classList.remove('is-visible');
-    document.body.classList.remove('cookie-open');
-    try { localStorage.setItem('suspiros-cookie-ack', '1'); } catch (err) {}
-  });
-
-  /* Floating CTA visibility */
-  var floatingCta = document.getElementById('floatingCta');
-  var ticking = false;
-  function onScroll() {
-    if (!ticking) {
-      requestAnimationFrame(function () {
-        var doc = document.documentElement;
-        var scrollTop = doc.scrollTop || document.body.scrollTop;
-        floatingCta.classList.toggle('is-visible', scrollTop > window.innerHeight * 0.9);
-        ticking = false;
-      });
-      ticking = true;
-    }
-  }
-  document.addEventListener('scroll', onScroll, { passive: true });
-
-  /* Reveal on scroll */
-  var revealEls = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          io.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-    revealEls.forEach(function (el) { io.observe(el); });
-  } else {
-    revealEls.forEach(function (el) { el.classList.add('is-visible'); });
-  }
-
-  /* Mobile menu */
-  var navToggle = document.getElementById('navToggle');
-  var mobileMenu = document.getElementById('mobileMenu');
-  navToggle.addEventListener('click', function () {
-    var isOpen = mobileMenu.classList.toggle('is-open');
-    navToggle.classList.toggle('is-open', isOpen);
-    navToggle.setAttribute('aria-expanded', isOpen);
-    document.body.style.overflow = isOpen ? 'hidden' : '';
-  });
-  mobileMenu.querySelectorAll('a').forEach(function (a) {
-    a.addEventListener('click', function () {
-      mobileMenu.classList.remove('is-open');
-      navToggle.classList.remove('is-open');
-      navToggle.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
-    });
-  });
-
-  /* Mouse-follow hero parallax */
-  if (!reduceMotion) {
-    var heroVisual = document.getElementById('heroVisual');
-    var layers = heroVisual.querySelectorAll('.parallax-layer');
-    heroVisual.addEventListener('mousemove', function (e) {
-      var rect = heroVisual.getBoundingClientRect();
-      var x = (e.clientX - rect.left) / rect.width - 0.5;
-      var y = (e.clientY - rect.top) / rect.height - 0.5;
-      layers.forEach(function (layer) {
-        var depth = parseFloat(layer.getAttribute('data-depth')) / 10;
-        layer.style.transform = 'translate(' + (x * depth) + 'px, ' + (y * depth) + 'px)';
-      });
-    });
-    heroVisual.addEventListener('mouseleave', function () {
-      layers.forEach(function (layer) { layer.style.transform = 'translate(0, 0)'; });
-    });
-  }
-
-  /* FAQ accordion */
-  document.querySelectorAll('.faq-item').forEach(function (item) {
-    var question = item.querySelector('.faq-question');
-    var answer = item.querySelector('.faq-answer');
-    question.addEventListener('click', function () {
-      var isOpen = item.classList.contains('is-open');
-      document.querySelectorAll('.faq-item.is-open').forEach(function (openItem) {
-        openItem.classList.remove('is-open');
-        openItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
-        openItem.querySelector('.faq-answer').style.maxHeight = null;
-      });
-      if (!isOpen) {
-        item.classList.add('is-open');
-        question.setAttribute('aria-expanded', 'true');
-        answer.style.maxHeight = answer.scrollHeight + 'px';
-      }
-    });
-  });
-
-  /* Enquiry form (submits to Netlify Forms) */
-  var form = document.getElementById('enquiryForm');
-  var success = document.getElementById('formSuccess');
-  var formError = document.getElementById('formError');
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    if (!form.checkValidity()) { form.reportValidity(); return; }
-    formError.classList.remove('is-visible');
-    var submitBtn = form.querySelector('button[type="submit"]');
-    submitBtn.disabled = true;
-    var body = new URLSearchParams(new FormData(form)).toString();
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: body
-    }).then(function (response) {
-      if (!response.ok) throw new Error('Form submission failed');
-      form.style.display = 'none';
-      success.classList.add('is-visible');
-    }).catch(function () {
-      formError.classList.add('is-visible');
-      submitBtn.disabled = false;
-    });
-  });
-
-  /* Emergency modal */
-  var emergencyOpen = document.getElementById('emergencyOpen');
-  var emergencyOverlay = document.getElementById('emergencyOverlay');
-  var emergencyClose = document.getElementById('emergencyClose');
-  var emergencyBackdrop = document.getElementById('emergencyBackdrop');
-  function openEmergency() {
-    mobileMenu.classList.remove('is-open');
-    navToggle.classList.remove('is-open');
-    navToggle.setAttribute('aria-expanded', 'false');
-    emergencyOverlay.classList.add('is-open');
-    emergencyOverlay.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-    emergencyClose.focus();
-  }
-  function closeEmergency() {
-    emergencyOverlay.classList.remove('is-open');
-    emergencyOverlay.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-    emergencyOpen.focus();
-  }
-  emergencyOpen.addEventListener('click', openEmergency);
-  emergencyClose.addEventListener('click', closeEmergency);
-  emergencyBackdrop.addEventListener('click', closeEmergency);
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && emergencyOverlay.classList.contains('is-open')) { closeEmergency(); }
-  });
-
-  /* i18n */
-  var I18N = {
-    en: {
-      'aria.skip': 'Skip to content',
-      'aria.menu': 'Open menu',
-      'aria.close': 'Close',
-      'announcement.text': 'Opening Early 2027 — confidential enquiries welcome now.',
-      'nav.about': 'About',
-      'nav.story': 'Our Story',
-      'nav.program': 'Treatment',
-      'nav.life': 'Life at Suspiros',
-      'nav.family': 'For Families',
-      'nav.faq': 'FAQ',
-      'nav.contact': 'Contact',
-      'nav.book': 'Book Assessment',
-      'nav.emergency': 'Emergency Help',
-      'hero.title': 'Recovery begins with <em>one decision</em>.',
-      'hero.sub': 'A private rehabilitation centre for drug and alcohol addiction, in Mallorca.',
-      'hero.cta': 'Book a Confidential Assessment',
-      'about.eyebrow': 'Who We Are',
-      'about.title': 'A private centre for addiction <em>recovery</em>.',
-      'about.lead': 'We treat drug and alcohol addiction with evidence-based care, in a structured and deeply human residential setting in Mallorca.',
-      'about.p2': 'Every resident is assessed individually and given a personalised treatment plan. Our clinical team is on site around the clock, alongside a dedicated key worker who walks with you from your first day to your last.',
-      'about.p3': 'We believe recovery is not only clinical. Alongside medical care, we nurture connection, routine, and self-understanding — the foundations of a life that lasts beyond treatment.',
-      'about.tag1': 'Residential Care',
-      'about.tag2': 'Evidence-Based Treatment',
-      'about.tag3': '24-Hour Support',
-      'story.eyebrow': 'Our Story',
-      'story.title': 'Built on the twelve steps.',
-      'story.p1': 'Suspiros was founded on a simple belief: recovery lasts when it is personal, structured, and never walked alone.',
-      'story.p2': 'Our programme is rooted in the 12-Step tradition, blended with medical care, therapy, and a steady daily rhythm.',
-      'story.p3': 'First developed in the 1930s, the 12-Step model remains one of the most respected and widely used recovery frameworks in the world. It is not tied to any religion, and welcomes people of every faith and background. At Suspiros, we offer it as one part of a broader, personalised pathway — alongside evidence-based treatment and close therapeutic support.',
-      'story.badgeTitle': '12-Step Foundation',
-      'story.badgeText': 'A globally recognised framework for lasting recovery, offered alongside clinical and holistic care.',
-      'program.eyebrow': 'Treatment Program',
-      'program.title': 'Care for the whole person.',
-      'program.sub': 'Medical care, therapy, and daily structure, built around your recovery.',
-      'program.card1Title': 'Medically Assisted Detox',
-      'program.card1Text': 'A clinician manages your physical stabilisation, safely and around the clock.',
-      'program.card2Title': 'One-to-One Support',
-      'program.card2Text': 'A dedicated key worker meets with you weekly to build your personal plan.',
-      'program.card3Title': 'Group Therapy & Workshops',
-      'program.card3Text': 'Daily groups and workshops on relapse prevention, change, and emotional wellbeing.',
-      'program.card4Title': 'Holistic Practices',
-      'program.card4Text': 'Yoga, meditation, and mindfulness, woven into your daily rhythm.',
-      'life.eyebrow': 'Life at Suspiros',
-      'life.title': 'A calm place to heal.',
-      'life.grove': 'Orange Grove', 'life.terrace': 'Terrace', 'life.pool': 'Pool',
-      'life.coast': 'Coastline', 'life.quiet': 'Quiet Room', 'life.group': 'Group Room',
-      'family.eyebrow': 'For Families',
-      'family.title': 'Support for the people who love them.',
-      'family.lead': 'Addiction affects the whole family. We keep you informed, welcome visits once your loved one has settled, and support regular calls and video contact throughout their stay.',
-      'family.tag1': 'Regular Updates',
-      'family.tag2': 'Visits Welcomed',
-      'family.tag3': 'Direct Contact with Our Team',
-      'faq.eyebrow': 'Frequently Asked Questions',
-      'faq.title': 'What people ask us.',
-      'faq.q1': 'Is the programme confidential?', 'faq.a1': 'Yes. Every enquiry and every stay is completely private.',
-      'faq.q2': 'How long does treatment last?', 'faq.a2': 'Programmes typically run from 8 to 12 weeks, tailored to you.',
-      'faq.q3': 'Is detox medically supervised?', 'faq.a3': 'Yes. A clinician oversees every step, day and night.',
-      'faq.q4': 'Can my family visit?', 'faq.a4': 'Yes, after an initial settling-in period, by arrangement.',
-      'faq.q5': 'What happens after I leave?', 'faq.a5': 'We build your recovery plan together, well before you go.',
-      'contact.eyebrow': 'Contact',
-      'contact.title': 'Begin with a conversation.',
-      'contact.sub': 'Reach out in confidence. We respond quickly.',
-      'contact.phoneLabel': 'Phone', 'contact.emailLabel': 'Email',
-      'contact.locationLabel': 'Location', 'contact.locationValue': 'Palma de Mallorca, Spain',
-      'form.name': 'Name', 'form.phone': 'Phone', 'form.email': 'Email', 'form.message': 'Message',
-      'form.send': 'Send Enquiry',
-      'form.note': 'All enquiries are confidential and reviewed by our admissions team.',
-      'form.error': 'Something went wrong sending your message. Please try again, or call or email us directly.',
-      'form.thanks': 'Thank you.', 'form.thanksSub': "We've received your message and will be in touch shortly.",
-      'footer.tag': 'A deep breath that expresses relief, love, or longing.',
-      'footer.copy': '© 2026 Suspiros Rehabilitation, Palma de Mallorca. All rights reserved.',
-      'emergency.title': 'Need help right now?',
-      'emergency.intro': 'These are independent crisis services, available 24/7 — not run by Suspiros.',
-      'emergency.spainLabel': 'Spain — Emergency services',
-      'emergency.spainCrisisLabel': 'Spain — Suicide crisis line',
-      'emergency.ukLabel': 'UK & Ireland — Samaritans',
-      'emergency.usLabel': 'USA — SAMHSA Helpline',
-      'emergency.footnote': 'If you or someone else is in immediate danger, call your local emergency number.',
-      'cookie.text': 'We use a small amount of local storage to remember your language choice and improve your visit. No personal data is sold or shared.',
-      'cookie.accept': 'Got it'
-    },
-    es: {
-      'aria.skip': 'Saltar al contenido',
-      'aria.menu': 'Abrir menú',
-      'aria.close': 'Cerrar',
-      'announcement.text': 'Apertura a Principios de 2027 — ya puedes hacer tu consulta confidencial.',
-      'nav.about': 'Quiénes Somos',
-      'nav.story': 'Nuestra Historia',
-      'nav.program': 'Tratamiento',
-      'nav.life': 'La Vida en Suspiros',
-      'nav.family': 'Familias',
-      'nav.faq': 'Preguntas',
-      'nav.contact': 'Contacto',
-      'nav.book': 'Reservar Valoración',
-      'nav.emergency': 'Ayuda Urgente',
-      'hero.title': 'La recuperación empieza con <em>una decisión</em>.',
-      'hero.sub': 'Un centro privado de rehabilitación para adicciones a drogas y alcohol, en Mallorca.',
-      'hero.cta': 'Reserva una Valoración Confidencial',
-      'about.eyebrow': 'Quiénes Somos',
-      'about.title': 'Un centro privado para la <em>recuperación</em> de adicciones.',
-      'about.lead': 'Tratamos la adicción a drogas y alcohol con cuidado basado en la evidencia, en un entorno residencial estructurado y profundamente humano, en Mallorca.',
-      'about.p2': 'Cada residente recibe una valoración individual y un plan de tratamiento personalizado. Nuestro equipo clínico está presente las 24 horas, junto a un key worker dedicado que te acompaña desde el primer día hasta el último.',
-      'about.p3': 'Creemos que la recuperación no es solo clínica. Junto al cuidado médico, cultivamos la conexión, la rutina y el autoconocimiento — la base de una vida que perdura más allá del tratamiento.',
-      'about.tag1': 'Cuidado Residencial',
-      'about.tag2': 'Tratamiento Basado en la Evidencia',
-      'about.tag3': 'Apoyo las 24 Horas',
-      'story.eyebrow': 'Nuestra Historia',
-      'story.title': 'Construido sobre los doce pasos.',
-      'story.p1': 'Suspiros nace de una idea simple: la recuperación perdura cuando es personal, estructurada y nunca se camina en soledad.',
-      'story.p2': 'Nuestro programa está basado en la tradición de los 12 pasos, combinada con atención médica, terapia y una rutina diaria estable.',
-      'story.p3': 'Desarrollado en la década de 1930, el modelo de los 12 Pasos sigue siendo uno de los marcos de recuperación más respetados y utilizados del mundo. No está vinculado a ninguna religión y da la bienvenida a personas de todas las creencias y orígenes. En Suspiros lo ofrecemos como parte de un itinerario más amplio y personalizado, junto con tratamiento basado en la evidencia y un acompañamiento terapéutico cercano.',
-      'story.badgeTitle': 'Fundamento en los 12 Pasos',
-      'story.badgeText': 'Un marco reconocido internacionalmente para una recuperación duradera, combinado con cuidado clínico y holístico.',
-      'program.eyebrow': 'Programa de Tratamiento',
-      'program.title': 'Cuidado para la persona completa.',
-      'program.sub': 'Atención médica, terapia y una rutina diaria, construida en torno a tu recuperación.',
-      'program.card1Title': 'Desintoxicación Médica',
-      'program.card1Text': 'Un médico supervisa tu estabilización física, con seguridad y las 24 horas.',
-      'program.card2Title': 'Sesiones Individuales',
-      'program.card2Text': 'Un key worker se reúne contigo cada semana para construir tu plan personal.',
-      'program.card3Title': 'Terapia de Grupo y Talleres',
-      'program.card3Text': 'Grupos diarios y talleres sobre prevención de recaídas, cambio y bienestar emocional.',
-      'program.card4Title': 'Prácticas Holísticas',
-      'program.card4Text': 'Yoga, meditación y mindfulness, integrados en tu rutina diaria.',
-      'life.eyebrow': 'La Vida en Suspiros',
-      'life.title': 'Un lugar tranquilo para sanar.',
-      'life.grove': 'Huerto de Naranjos', 'life.terrace': 'Terraza', 'life.pool': 'Piscina',
-      'life.coast': 'Costa', 'life.quiet': 'Sala de Calma', 'life.group': 'Sala de Grupo',
-      'family.eyebrow': 'Para Familias',
-      'family.title': 'Apoyo para quienes los quieren.',
-      'family.lead': 'La adicción afecta a toda la familia. Os mantenemos informados, damos la bienvenida a las visitas cuando vuestro ser querido se ha asentado, y facilitamos llamadas y videollamadas regulares durante su estancia.',
-      'family.tag1': 'Actualizaciones Regulares',
-      'family.tag2': 'Visitas Bienvenidas',
-      'family.tag3': 'Contacto Directo con el Equipo',
-      'faq.eyebrow': 'Preguntas Frecuentes',
-      'faq.title': 'Lo que nos preguntan.',
-      'faq.q1': '¿Es confidencial el programa?', 'faq.a1': 'Sí. Cada consulta y cada estancia son totalmente privadas.',
-      'faq.q2': '¿Cuánto dura el tratamiento?', 'faq.a2': 'Los programas suelen durar de 8 a 12 semanas, adaptados a ti.',
-      'faq.q3': '¿La desintoxicación está supervisada médicamente?', 'faq.a3': 'Sí. Un médico supervisa cada paso, día y noche.',
-      'faq.q4': '¿Puede visitarme mi familia?', 'faq.a4': 'Sí, tras un periodo inicial de adaptación, con cita previa.',
-      'faq.q5': '¿Qué ocurre después de irme?', 'faq.a5': 'Construimos tu plan de recuperación juntos, mucho antes de que te vayas.',
-      'contact.eyebrow': 'Contacto',
-      'contact.title': 'Empieza con una conversación.',
-      'contact.sub': 'Contacta con total confianza. Respondemos rápido.',
-      'contact.phoneLabel': 'Teléfono', 'contact.emailLabel': 'Correo',
-      'contact.locationLabel': 'Ubicación', 'contact.locationValue': 'Palma de Mallorca, España',
-      'form.name': 'Nombre', 'form.phone': 'Teléfono', 'form.email': 'Correo electrónico', 'form.message': 'Mensaje',
-      'form.send': 'Enviar Consulta',
-      'form.note': 'Todas las consultas son confidenciales y las revisa nuestro equipo de admisiones.',
-      'form.error': 'Ha ocurrido un error al enviar tu mensaje. Inténtalo de nuevo, o llámanos o escríbenos directamente.',
-      'form.thanks': 'Gracias.', 'form.thanksSub': 'Hemos recibido tu mensaje y te contactaremos en breve.',
-      'footer.tag': 'Una respiración profunda que expresa alivio, amor o anhelo.',
-      'footer.copy': '© 2026 Suspiros Rehabilitation, Palma de Mallorca. Todos los derechos reservados.',
-      'emergency.title': '¿Necesitas ayuda ahora mismo?',
-      'emergency.intro': 'Estos son servicios de emergencia independientes, disponibles 24/7 — no gestionados por Suspiros.',
-      'emergency.spainLabel': 'España — Emergencias',
-      'emergency.spainCrisisLabel': 'España — Línea de conducta suicida',
-      'emergency.ukLabel': 'Reino Unido e Irlanda — Samaritans',
-      'emergency.usLabel': 'EE. UU. — Línea SAMHSA',
-      'emergency.footnote': 'Si tú o alguien más está en peligro inmediato, llama al número de emergencias local.',
-      'cookie.text': 'Usamos una pequeña cantidad de almacenamiento local para recordar tu idioma y mejorar tu visita. No vendemos ni compartimos datos personales.',
-      'cookie.accept': 'Entendido'
-    }
-  };
-
-  function applyLang(lang) {
-    if (!I18N[lang]) return;
-    document.documentElement.lang = lang;
-    document.querySelectorAll('[data-i18n]').forEach(function (el) {
-      var key = el.getAttribute('data-i18n');
-      var val = I18N[lang][key];
-      if (val == null) return;
-      if (el.hasAttribute('data-i18n-html')) { el.innerHTML = val; }
-      else { el.textContent = val; }
-    });
-    document.querySelectorAll('[data-i18n-aria]').forEach(function (el) {
-      var key = el.getAttribute('data-i18n-aria');
-      var val = I18N[lang][key];
-      if (val != null) el.setAttribute('aria-label', val);
-    });
-    document.querySelectorAll('.lang-toggle button').forEach(function (btn) {
-      btn.classList.toggle('is-active', btn.getAttribute('data-lang') === lang);
-    });
-    try { localStorage.setItem('suspiros-lang', lang); } catch (err) {}
-  }
-
-  document.querySelectorAll('.lang-toggle button').forEach(function (btn) {
-    btn.addEventListener('click', function () { applyLang(btn.getAttribute('data-lang')); });
-  });
-
-  applyLang('es');
-})();
-</script>
+<script src="assets/i18n.js"></script>
+<script src="assets/main.js"></script>
 
 </body>
 </html>
