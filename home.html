@@ -9,7 +9,9 @@
 <meta property="og:title" content="Suspiros — Private Rehabilitation Retreat, Mallorca">
 <meta property="og:description" content="Recovery begins with one decision. A private rehabilitation retreat in Mallorca.">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%236F7F58'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23FAF9F5'/%3E%3C/svg%3E">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="180x180" href="images/favicon.png">
+<link rel="apple-touch-icon" href="images/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -224,7 +226,7 @@
 
   /* MOBILE MENU */
   .mobile-menu {
-    position: fixed; inset: 0; z-index: 190;
+    position: fixed; inset: 0; z-index: 260;
     background: var(--bg);
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     gap: 1.9rem;
@@ -319,7 +321,7 @@
   .about-tag-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--primary); flex-shrink: 0; }
 
   /* OUR STORY */
-  .story-section { background: var(--card); }
+  .story-section, .family-section { background: var(--card); }
   .story-grid {
     max-width: 640px; margin: 0 auto; text-align: center;
   }
@@ -497,6 +499,21 @@
   }
   .floating-cta a:hover { background: var(--primary-dark); transform: translateY(-2px); }
 
+  /* COOKIE NOTICE */
+  .cookie-banner {
+    position: fixed; left: 1.5rem; right: 1.5rem; bottom: 1.5rem; z-index: 250;
+    max-width: 640px; margin: 0 auto;
+    background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-hover);
+    padding: 1.25rem 1.5rem;
+    display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem;
+    opacity: 0; visibility: hidden; transform: translateY(16px);
+    transition: opacity 0.4s var(--ease), transform 0.4s var(--ease), visibility 0.4s var(--ease);
+  }
+  .cookie-banner.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
+  .cookie-banner p { flex: 1 1 320px; font-size: 0.86rem; color: var(--text-secondary); margin: 0; }
+  .cookie-banner .btn-primary { padding: 0.7rem 1.4rem; font-size: 0.85rem; flex-shrink: 0; }
+
   /* EMERGENCY MODAL */
   .emergency-overlay {
     position: fixed; inset: 0; z-index: 400;
@@ -565,6 +582,8 @@
     .floating-cta { right: 1rem; bottom: 1rem; left: 1rem; }
     .floating-cta a { justify-content: center; width: 100%; }
     .emergency-card { padding: 1.9rem 1.5rem 1.6rem; }
+    .cookie-banner { left: 1rem; right: 1rem; bottom: 1rem; flex-direction: column; align-items: stretch; text-align: center; }
+    body.cookie-open .floating-cta { bottom: 6.5rem; }
   }
 
   @media (max-width: 520px) {
@@ -607,6 +626,7 @@
       <li><a href="#story" data-i18n="nav.story">Our Story</a></li>
       <li><a href="#program" data-i18n="nav.program">Treatment</a></li>
       <li><a href="#life" data-i18n="nav.life">Life at Suspiros</a></li>
+      <li><a href="#family" data-i18n="nav.family">For Families</a></li>
       <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
       <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
     </ul>
@@ -622,6 +642,7 @@
   <a href="#story" data-i18n="nav.story">Our Story</a>
   <a href="#program" data-i18n="nav.program">Treatment</a>
   <a href="#life" data-i18n="nav.life">Life at Suspiros</a>
+  <a href="#family" data-i18n="nav.family">For Families</a>
   <a href="#faq" data-i18n="nav.faq">FAQ</a>
   <a href="#contact" data-i18n="nav.contact">Contact</a>
   <a href="#contact" class="nav-cta" data-i18n="nav.book">Book Assessment</a>
@@ -771,6 +792,24 @@
     </div>
   </section>
 
+  <!-- FOR FAMILIES -->
+  <section id="family" class="family-section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <span class="section-eyebrow" data-i18n="family.eyebrow">For Families</span>
+          <h2 data-i18n="family.title">Support for the people who love them.</h2>
+          <p data-i18n="family.lead">Addiction affects the whole family. We keep you informed, welcome visits once your loved one has settled, and support regular calls and video contact throughout their stay.</p>
+          <div class="about-tags">
+            <span data-i18n="family.tag1">Regular Updates</span><span class="about-tag-dot"></span>
+            <span data-i18n="family.tag2">Visits Welcomed</span><span class="about-tag-dot"></span>
+            <span data-i18n="family.tag3">Direct Contact with Our Team</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- FAQ -->
   <section id="faq">
     <div class="container">
@@ -896,6 +935,7 @@
         <li><a href="#story" data-i18n="nav.story">Our Story</a></li>
         <li><a href="#program" data-i18n="nav.program">Treatment</a></li>
         <li><a href="#life" data-i18n="nav.life">Life at Suspiros</a></li>
+        <li><a href="#family" data-i18n="nav.family">For Families</a></li>
         <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
         <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
       </ul>
@@ -925,6 +965,12 @@
   </div>
 </div>
 
+<!-- COOKIE NOTICE -->
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Cookie notice">
+  <p data-i18n="cookie.text">We use a small amount of local storage to remember your language choice and improve your visit. No personal data is sold or shared.</p>
+  <button type="button" class="btn-primary" id="cookieAccept"><span data-i18n="cookie.accept">Got it</span></button>
+</div>
+
 <script>
 (function () {
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -937,6 +983,23 @@
     setTimeout(function () {
       document.getElementById('preloader').classList.add('is-hidden');
     }, wait);
+  });
+
+  /* Cookie notice */
+  var cookieBanner = document.getElementById('cookieBanner');
+  var cookieAccept = document.getElementById('cookieAccept');
+  try {
+    if (!localStorage.getItem('suspiros-cookie-ack')) {
+      setTimeout(function () {
+        cookieBanner.classList.add('is-visible');
+        document.body.classList.add('cookie-open');
+      }, 1200);
+    }
+  } catch (err) {}
+  cookieAccept.addEventListener('click', function () {
+    cookieBanner.classList.remove('is-visible');
+    document.body.classList.remove('cookie-open');
+    try { localStorage.setItem('suspiros-cookie-ack', '1'); } catch (err) {}
   });
 
   /* Floating CTA visibility */
@@ -1088,6 +1151,7 @@
       'nav.story': 'Our Story',
       'nav.program': 'Treatment',
       'nav.life': 'Life at Suspiros',
+      'nav.family': 'For Families',
       'nav.faq': 'FAQ',
       'nav.contact': 'Contact',
       'nav.book': 'Book Assessment',
@@ -1122,6 +1186,12 @@
       'life.title': 'A calm place to heal.',
       'life.grove': 'Orange Grove', 'life.terrace': 'Terrace', 'life.pool': 'Pool',
       'life.coast': 'Coastline', 'life.quiet': 'Quiet Room', 'life.group': 'Group Room',
+      'family.eyebrow': 'For Families',
+      'family.title': 'Support for the people who love them.',
+      'family.lead': 'Addiction affects the whole family. We keep you informed, welcome visits once your loved one has settled, and support regular calls and video contact throughout their stay.',
+      'family.tag1': 'Regular Updates',
+      'family.tag2': 'Visits Welcomed',
+      'family.tag3': 'Direct Contact with Our Team',
       'faq.eyebrow': 'Frequently Asked Questions',
       'faq.title': 'What people ask us.',
       'faq.q1': 'Is the programme confidential?', 'faq.a1': 'Yes. Every enquiry and every stay is completely private.',
@@ -1147,7 +1217,9 @@
       'emergency.spainCrisisLabel': 'Spain — Suicide crisis line',
       'emergency.ukLabel': 'UK & Ireland — Samaritans',
       'emergency.usLabel': 'USA — SAMHSA Helpline',
-      'emergency.footnote': 'If you or someone else is in immediate danger, call your local emergency number.'
+      'emergency.footnote': 'If you or someone else is in immediate danger, call your local emergency number.',
+      'cookie.text': 'We use a small amount of local storage to remember your language choice and improve your visit. No personal data is sold or shared.',
+      'cookie.accept': 'Got it'
     },
     es: {
       'aria.skip': 'Saltar al contenido',
@@ -1157,6 +1229,7 @@
       'nav.story': 'Nuestra Historia',
       'nav.program': 'Tratamiento',
       'nav.life': 'La Vida en Suspiros',
+      'nav.family': 'Familias',
       'nav.faq': 'Preguntas',
       'nav.contact': 'Contacto',
       'nav.book': 'Reservar Valoración',
@@ -1191,6 +1264,12 @@
       'life.title': 'Un lugar tranquilo para sanar.',
       'life.grove': 'Huerto de Naranjos', 'life.terrace': 'Terraza', 'life.pool': 'Piscina',
       'life.coast': 'Costa', 'life.quiet': 'Sala de Calma', 'life.group': 'Sala de Grupo',
+      'family.eyebrow': 'Para Familias',
+      'family.title': 'Apoyo para quienes los quieren.',
+      'family.lead': 'La adicción afecta a toda la familia. Os mantenemos informados, damos la bienvenida a las visitas cuando vuestro ser querido se ha asentado, y facilitamos llamadas y videollamadas regulares durante su estancia.',
+      'family.tag1': 'Actualizaciones Regulares',
+      'family.tag2': 'Visitas Bienvenidas',
+      'family.tag3': 'Contacto Directo con el Equipo',
       'faq.eyebrow': 'Preguntas Frecuentes',
       'faq.title': 'Lo que nos preguntan.',
       'faq.q1': '¿Es confidencial el programa?', 'faq.a1': 'Sí. Cada consulta y cada estancia son totalmente privadas.',
@@ -1216,7 +1295,9 @@
       'emergency.spainCrisisLabel': 'España — Línea de conducta suicida',
       'emergency.ukLabel': 'Reino Unido e Irlanda — Samaritans',
       'emergency.usLabel': 'EE. UU. — Línea SAMHSA',
-      'emergency.footnote': 'Si tú o alguien más está en peligro inmediato, llama al número de emergencias local.'
+      'emergency.footnote': 'Si tú o alguien más está en peligro inmediato, llama al número de emergencias local.',
+      'cookie.text': 'Usamos una pequeña cantidad de almacenamiento local para recordar tu idioma y mejorar tu visita. No vendemos ni compartimos datos personales.',
+      'cookie.accept': 'Entendido'
     }
   };
 
