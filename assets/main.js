@@ -138,7 +138,7 @@
       var submitBtn = form.querySelector('button[type="submit"]');
       submitBtn.disabled = true;
       var body = new URLSearchParams(new FormData(form)).toString();
-      fetch('/', {
+      fetch('/contact.html', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: body
@@ -147,6 +147,11 @@
         form.style.display = 'none';
         success.classList.add('is-visible');
       }).catch(function () {
+        /* Fallback: open the visitor's email app with the message pre-filled */
+        var f = form.elements;
+        var subject = 'Admission enquiry - ' + f.name.value;
+        var text = f.message.value + '\n\n' + f.name.value + '\n' + f.email.value + (f.phone.value ? '\n' + f.phone.value : '');
+        window.location.href = 'mailto:info@suspirosrehab.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(text);
         formError.classList.add('is-visible');
         submitBtn.disabled = false;
       });
