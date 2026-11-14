@@ -126,27 +126,35 @@
     });
   });
 
-  /* Enquiry form (posts to the Cloudflare Pages Function at /api/contact) */
+  /* Enquiry form (AJAX POST to FormSubmit, delivered to the admissions inbox) */
   var form = document.getElementById('enquiryForm');
   if (form) {
     var success = document.getElementById('formSuccess');
     var formError = document.getElementById('formError');
-    var tsField = document.getElementById('formTs');
-    if (tsField) tsField.value = String(Date.now());
+    var loadedAt = Date.now();
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       if (!form.checkValidity()) { form.reportValidity(); return; }
       formError.classList.remove('is-visible');
+      /* Antispam: filled honeypot or instant submit = bot. Pretend success, send nothing. */
+      var honey = form.elements['_honey'];
+      if ((honey && honey.value) || Date.now() - loadedAt < 3000) {
+        form.style.display = 'none';
+        success.classList.add('is-visible');
+        return;
+      }
       var submitBtn = form.querySelector('button[type="submit"]');
       submitBtn.disabled = true;
-      var body = new URLSearchParams(new FormData(form)).toString();
-      fetch('/api/contact', {
+      var payload = {};
+      new FormData(form).forEach(function (v, k) { payload[k] = v; });
+      fetch(form.action.replace('formsubmit.co/', 'formsubmit.co/ajax/'), {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: body
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
       }).then(function (response) {
         return response.json().catch(function () { return {}; }).then(function (res) {
-          if (!response.ok || !res.ok) throw new Error('Form submission failed');
+          /* Success only if FormSubmit explicitly confirms it */
+          if (!response.ok || !(res.success === true || res.success === 'true')) throw new Error('Form submission failed');
         });
       }).then(function () {
         form.style.display = 'none';
