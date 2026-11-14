@@ -126,11 +126,13 @@
     });
   });
 
-  /* Enquiry form (submits to Netlify Forms) */
+  /* Enquiry form (posts to the Cloudflare Pages Function at /api/contact) */
   var form = document.getElementById('enquiryForm');
   if (form) {
     var success = document.getElementById('formSuccess');
     var formError = document.getElementById('formError');
+    var tsField = document.getElementById('formTs');
+    if (tsField) tsField.value = String(Date.now());
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       if (!form.checkValidity()) { form.reportValidity(); return; }
@@ -138,12 +140,15 @@
       var submitBtn = form.querySelector('button[type="submit"]');
       submitBtn.disabled = true;
       var body = new URLSearchParams(new FormData(form)).toString();
-      fetch('/contact.html', {
+      fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: body
       }).then(function (response) {
-        if (!response.ok) throw new Error('Form submission failed');
+        return response.json().catch(function () { return {}; }).then(function (res) {
+          if (!response.ok || !res.ok) throw new Error('Form submission failed');
+        });
+      }).then(function () {
         form.style.display = 'none';
         success.classList.add('is-visible');
       }).catch(function () {
